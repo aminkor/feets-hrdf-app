@@ -1,0 +1,32 @@
+.form-introduction {
+  color: #7A7A7A;
+  margin: 20px;
+  font-size: 1.2em; }
+
+label {
+  color: #7A7A7A;
+  font-weight: bold;
+  font-family: Arial;
+  font-size: 1.2em; }
+
+.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
+  width: 10% !important;
+  height: 17px !important;
+  display: inline-block !important;
+  margin-left: 0px;
+  margin: -1px 0 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none; }
+
+.checkbox label {
+  padding: 0px; }
+
+.btn-success {
+  color: #fff;
+  font-weight: bolder;
+  background-image: linear-gradient(to right, #FFE25B, #F1CC20);
+  border-color: transparent;
+  width: 100%; }
+
+/*# sourceMappingURL=form.component.css.map */

@@ -1,0 +1,22 @@
+.HRDF-first-page {
+  color: #444444;
+  font-family: calibri;
+  font-size: 2.5em;
+  line-height: 1.3em;
+  height: 50vh;
+  padding-left: 15vw;
+  display: table; }
+
+.circle {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  vertical-align: middle; }
+  .circle svg {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+/*# sourceMappingURL=home.component.css.map */
