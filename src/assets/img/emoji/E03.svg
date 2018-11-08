@@ -1,0 +1,30 @@
+<svg id="E03" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffd93b;
+      }
+
+      .cls-2 {
+        fill: #f4c534;
+      }
+
+      .cls-3 {
+        fill: #3e4347;
+      }
+
+      .cls-4 {
+        fill: #5a5f63;
+      }
+    </style>
+  </defs>
+  <circle id="Ellipse_91" data-name="Ellipse 91" class="cls-1" cx="50" cy="50" r="50"/>
+  <path id="Path_2572" data-name="Path 2572" class="cls-2" d="M145.642,95.642A50,50,0,0,1,56.72,127.033,50,50,0,0,0,127.033,56.72,49.946,49.946,0,0,1,145.642,95.642Z" transform="translate(-45.642 -45.642)"/>
+  <g id="Group_1900" data-name="Group 1900" transform="translate(26.634 32.997)">
+    <path id="Path_2573" data-name="Path 2573" class="cls-3" d="M186.177,333.2a2.717,2.717,0,0,1-2.719,2.719H144.143a2.719,2.719,0,1,1,0-5.437h39.316A2.717,2.717,0,0,1,186.177,333.2Z" transform="translate(-140.436 -298.93)"/>
+    <circle id="Ellipse_92" data-name="Ellipse 92" class="cls-3" cx="7.45" cy="7.45" r="7.45"/>
+  </g>
+  <ellipse id="Ellipse_93" data-name="Ellipse 93" class="cls-4" cx="1.956" cy="1.266" rx="1.956" ry="1.266" transform="translate(37.393 39.729) rotate(-126.653)"/>
+  <circle id="Ellipse_94" data-name="Ellipse 94" class="cls-3" cx="7.45" cy="7.45" r="7.45" transform="translate(58.456 32.997)"/>
+  <ellipse id="Ellipse_95" data-name="Ellipse 95" class="cls-4" cx="1.956" cy="1.266" rx="1.956" ry="1.266" transform="matrix(-0.597, -0.802, 0.802, -0.597, 69.213, 39.736)"/>
+</svg>

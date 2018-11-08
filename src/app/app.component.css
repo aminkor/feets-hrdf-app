@@ -1,2 +1,17 @@
+.HRDF-first-page {
+  color: #444444;
+  font-family: calibri;
+  font-size: 2.5em; }
+
+@font-face {
+  font-family: 'calibri';
+  src: url("../assets/fonts/calibri.eot");
+  src: url("../assets/fonts/calibri.eot") format("embedded-opentype"), url("../assets/fonts/calibri.woff2") format("woff2"), url("../assets/fonts/calibri.woff") format("woff"), url("../assets/fonts/calibri.ttf") format("truetype"), url("../assets/fonts/calibri.svg#calibri") format("svg"); }
+@font-face {
+  font-family: 'emoji';
+  src: url("../assets/fonts/emoji.eot?vmj92");
+  src: url("../assets/fonts/emoji.eot?vmj92#iefix") format("embedded-opentype"), url("../assets/fonts/emoji.ttf?vmj92") format("truetype"), url("../assets/fonts/emoji.woff?vmj92") format("woff"), url("../assets/fonts/emoji.svg?vmj92#emoji") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 
 /*# sourceMappingURL=app.component.css.map */
