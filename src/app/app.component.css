@@ -13,5 +13,11 @@
   src: url("../assets/fonts/emoji.eot?vmj92#iefix") format("embedded-opentype"), url("../assets/fonts/emoji.ttf?vmj92") format("truetype"), url("../assets/fonts/emoji.woff?vmj92") format("woff"), url("../assets/fonts/emoji.svg?vmj92#emoji") format("svg");
   font-weight: normal;
   font-style: normal; }
+@font-face {
+  font-family: 'scale';
+  src: url("../assets/fonts/scale.eot?o9h78u");
+  src: url("../assets/fonts/scale.eot?o9h78u#iefix") format("embedded-opentype"), url("../assets/fonts/scale.ttf?o9h78u") format("truetype"), url("../assets/fonts/scale.woff?o9h78u") format("woff"), url("../assets/fonts/scale.svg?o9h78u#scale") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 
 /*# sourceMappingURL=app.component.css.map */

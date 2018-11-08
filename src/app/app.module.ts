@@ -9,12 +9,14 @@ import {routing} from './app.routing';
 import { FormComponent } from './form/form.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {RoundProgressModule} from 'angular-svg-round-progressbar';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    FormComponent
+    FormComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -25,6 +27,7 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     MatIconModule,
     HttpClientModule,
+    RoundProgressModule,
     routing
   ],
   providers: [],

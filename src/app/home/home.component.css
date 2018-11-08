@@ -33,10 +33,34 @@
 #emoji {
   text-align: center; }
 
-.circle-progressbar {
+#dots-5 {
+  text-align: center;
+  font-size: 1.5em; }
+
+#dots-4 {
+  text-align: center;
+  font-size: 1.5em; }
+
+.number-in-progressbar {
+  font-size: 7vw;
+  font-weight: bold;
+  position: absolute;
   z-index: 9999;
-  right: 0 !important;
-  left: auto !important; }
+  top: 8vw;
+  left: auto;
+  right: 9.5vw; }
+
+.responsive {
+  position: absolute;
+  z-index: 999;
+  width: 20vw !important;
+  height: 20vw !important;
+  top: 3vw;
+  left: auto;
+  right: 2vw;
+  background-color: white;
+  border-radius: 400%;
+  padding-bottom: 0% !important; }
 
 .circle {
   display: inline-block;
@@ -430,5 +454,40 @@
   content: "\e949";
   margin-left: -1em;
   color: #a4a4a4; }
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'scale' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-selected-gray:before {
+  content: "\e900";
+  color: #d9d9d9; }
+
+.icon-selected-green:before {
+  content: "\e901";
+  color: #02d57f; }
+
+.icon-selected-red:before {
+  content: "\e902";
+  color: #ff7d7d; }
+
+.icon-Unselected-gray:before {
+  content: "\e903"; }
+
+.icon-Unselected-green:before {
+  content: "\e904";
+  color: #02d57f; }
+
+.icon-Unselected-red:before {
+  content: "\e905"; }
 
 /*# sourceMappingURL=home.component.css.map */
