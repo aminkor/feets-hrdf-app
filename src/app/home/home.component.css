@@ -481,13 +481,15 @@
   color: #ff7d7d; }
 
 .icon-Unselected-gray:before {
-  content: "\e903"; }
+  content: "\e903";
+  color: #d9d9d9; }
 
 .icon-Unselected-green:before {
   content: "\e904";
   color: #02d57f; }
 
 .icon-Unselected-red:before {
-  content: "\e905"; }
+  content: "\e905";
+  color: #ff7d7d; }
 
 /*# sourceMappingURL=home.component.css.map */

@@ -12,10 +12,10 @@ export class HomeComponent implements OnInit {
   public isQuestion: boolean;
   constructor(private router: Router, private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
     this.isQuestion = false;
-    this.matIconRegistry.addSvgIcon(
-      'E01',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/img/emoji/E01.svg')
-    );
+    // this.matIconRegistry.addSvgIcon(
+    //   'E01',
+    //   this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/img/emoji/E01.svg')
+    // );
   }
 
 
@@ -30,8 +30,6 @@ export class HomeComponent implements OnInit {
 
   toggleIsQuestion(){
     this.isQuestion = !this.isQuestion;
-
   }
-
 
 }
