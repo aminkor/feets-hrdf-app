@@ -9,16 +9,23 @@
 
 .whiteBg {
   background-color: #FFF;
-  margin: 9%;
-  padding: 9%;
+  margin: 8vw;
+  padding: 8vw;
   border-radius: 0.8em;
   height: 90vh; }
 
+.col-half-offset {
+  margin-left: 1.966667%; }
+
+.container-padding {
+  padding-right: 0px !important;
+  padding-left: 0px !important; }
+
 .question-text {
-  font-size: 2.5em;
+  font-size: 9vw;
   word-break: break-word;
   font-family: calibri;
-  margin-top: 2em !important;
+  margin-top: 5vw !important;
   max-height: 30vh;
   overflow-y: scroll; }
 
@@ -26,20 +33,33 @@
   margin: auto;
   background-image: linear-gradient(to right, #F1CC20, #FFE25B);
   border-radius: 10em;
-  font-size: 2em;
-  padding: 0.3em 2.9em;
+  font-size: 5vw;
+  padding: 2vw 20vw;
+  font-weight: bolder; }
+
+.start-back-btn-disable {
+  margin: auto;
+  background-image: linear-gradient(to right, #979797, #d1d1d1);
+  border: transparent;
+  border-radius: 10em;
+  font-size: 5vw;
+  padding: 2vw 20vw;
   font-weight: bolder; }
 
 #emoji {
-  text-align: center; }
+  text-align: center;
+  font-size: 11vw;
+  margin: 26vw 0; }
 
 #dots-5 {
   text-align: center;
-  font-size: 1.5em; }
+  font-size: 11vw;
+  margin: 26vw 0; }
 
 #dots-4 {
   text-align: center;
-  font-size: 1.5em; }
+  font-size: 11vw;
+  margin: 26vw 0; }
 
 .number-in-progressbar {
   font-size: 7vw;
@@ -48,7 +68,7 @@
   z-index: 9999;
   top: 8vw;
   left: auto;
-  right: 9.5vw; }
+  right: 10vw; }
 
 .responsive {
   position: absolute;
@@ -60,12 +80,14 @@
   right: 2vw;
   background-color: white;
   border-radius: 400%;
-  padding-bottom: 0% !important; }
+  padding-bottom: 0% !important;
+  box-shadow: 0px 0px 13px #aaaaaa; }
 
 .circle {
   display: inline-block;
   position: relative;
   width: 100%;
+  height: 90vh;
   vertical-align: middle; }
   .circle svg {
     display: inline-block;
@@ -73,23 +95,53 @@
     top: 0;
     left: 0; }
 
-.col-3, .col-2 {
-  padding-right: 0 !important;
-  padding-left: 0 !important; }
+.large-scale {
+  font-size: 10vw !important; }
+
+.medium-scale {
+  font-size: 7vw !important; }
+
+.small-scale {
+  font-size: 5vw !important; }
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'emoji' !important;
+  font-family: 'emojiScale' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  font-size: 300%;
+  vertical-align: middle;
+  display: inline-block;
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+.icon-selected-gray:before {
+  content: "\e94a";
+  color: #d9d9d9; }
+
+.icon-selected-green:before {
+  content: "\e94b";
+  color: #02d57f; }
+
+.icon-selected-red:before {
+  content: "\e94c";
+  color: #ff7d7d; }
+
+.icon-Unselected-gray:before {
+  content: "\e94d";
+  color: #d9d9d9; }
+
+.icon-Unselected-green:before {
+  content: "\e94e";
+  color: #02d57f; }
+
+.icon-Unselected-red:before {
+  content: "\e94f";
+  color: #ff7d7d; }
 
 .icon-E01 .path1:before {
   content: "\e900";
@@ -454,42 +506,5 @@
   content: "\e949";
   margin-left: -1em;
   color: #a4a4a4; }
-
-[class^="icon-"], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'scale' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-.icon-selected-gray:before {
-  content: "\e900";
-  color: #d9d9d9; }
-
-.icon-selected-green:before {
-  content: "\e901";
-  color: #02d57f; }
-
-.icon-selected-red:before {
-  content: "\e902";
-  color: #ff7d7d; }
-
-.icon-Unselected-gray:before {
-  content: "\e903";
-  color: #d9d9d9; }
-
-.icon-Unselected-green:before {
-  content: "\e904";
-  color: #02d57f; }
-
-.icon-Unselected-red:before {
-  content: "\e905";
-  color: #ff7d7d; }
 
 /*# sourceMappingURL=home.component.css.map */

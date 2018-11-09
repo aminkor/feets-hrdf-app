@@ -16,27 +16,17 @@
   url('../assets/fonts/calibri.svg#calibri') format('svg');
 }
 
-//icon-fonts import
 @font-face {
-  font-family: 'emoji';
-  src:  url('../assets/fonts/emoji.eot?vmj92');
-  src:  url('../assets/fonts/emoji.eot?vmj92#iefix') format('embedded-opentype'),
-  url('../assets/fonts/emoji.ttf?vmj92') format('truetype'),
-  url('../assets/fonts/emoji.woff?vmj92') format('woff'),
-  url('../assets/fonts/emoji.svg?vmj92#emoji') format('svg');
+  font-family: 'emojiScale';
+  src:  url('../assets/fonts/emojiScale.eot?jt32u5');
+  src:  url('../assets/fonts/emojiScale.eot?jt32u5#iefix') format('embedded-opentype'),
+  url('../assets/fonts/emojiScale.ttf?jt32u5') format('truetype'),
+  url('../assets/fonts/emojiScale.woff?jt32u5') format('woff'),
+  url('../assets/fonts/emojiScale.svg?jt32u5#emojiScale') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'scale';
-  src:  url('../assets/fonts/scale.eot?o9h78u');
-  src:  url('../assets/fonts/scale.eot?o9h78u#iefix') format('embedded-opentype'),
-  url('../assets/fonts/scale.ttf?o9h78u') format('truetype'),
-  url('../assets/fonts/scale.woff?o9h78u') format('woff'),
-  url('../assets/fonts/scale.svg?o9h78u#scale') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
+
 
 

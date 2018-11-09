@@ -9,6 +9,18 @@ label {
   font-family: Arial;
   font-size: 1.2em; }
 
+.circle {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  vertical-align: middle; }
+  .circle svg {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
 .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
   width: 10% !important;
   height: 17px !important;
