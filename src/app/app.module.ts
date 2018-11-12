@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCardModule, MatIconModule, MatToolbarModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatCheckboxModule, MatIconModule, MatToolbarModule} from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import {routing} from './app.routing';
 import { FormComponent } from './form/form.component';
@@ -27,6 +27,7 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar';
     MatIconModule,
     HttpClientModule,
     RoundProgressModule,
+    MatCheckboxModule,
     routing
   ],
   providers: [],

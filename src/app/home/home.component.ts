@@ -121,5 +121,6 @@ export class HomeComponent implements OnInit {
     if (this.current === this.questionsArray.length) {
       this.isLastQuestion = true;
     }
+    this.hasAnswered = false;
   }
 }

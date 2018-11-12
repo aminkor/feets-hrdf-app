@@ -1,13 +1,14 @@
 <div class="circle">
-  <svg style="z-index: -100;" version="1.1" viewBox="0 0 1000 1000" preserveAspectRatio="xMinYMin meet">
+  <svg style="z-index: -100; overflow: visible;" version="1.1" viewBox="0 0 1000 1000"
+       preserveAspectRatio="xMinYMin meet">
     <defs>
       <linearGradient id="MyGradient">
         <stop offset="3%" stop-color="#E9E9E9"/>
         <stop offset="97%" stop-color="#D9D9D9"/>
       </linearGradient>
     </defs>
-    <circle fill="url(#MyGradient)" transform="rotate(0)" opacity="0.6" cx="1000" cy="400" r="60%"/>
-    <circle fill="url(#MyGradient)" transform="rotate(45)" opacity="0.4" cx="0" cy="0" r="80%"></circle>
+    <circle fill="url(#MyGradient)" transform="rotate(0)" opacity="0.6" cx="1000" cy="400" r="70%"/>
+    <circle fill="url(#MyGradient)" transform="rotate(45)" opacity="0.4" cx="0" cy="0" r="70%"></circle>
   </svg>
 
   <div id="Welcome" *ngIf="!isQuestion">
@@ -57,72 +58,123 @@
       <div id="emoji" class="container" *ngIf="isEmoji || currentQuestion.type === 'emoji'">
         <div class="row" style="line-height: 50px; height: 50px;">
           <div class="col-2" (click)="selectAnswer(1)">
-            <span *ngIf="isSelected1" class="icon-E01"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span></span>
-            <span *ngIf="!isSelected1" class="icon-GE01"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span></span>
+            <span *ngIf="!isSelected1" class="icon-GE01"><span class="path1"></span><span class="path2"></span><span
+              class="path3"></span><span class="path4"></span><span class="path5"></span><span
+              class="path6"></span><span class="path7"></span><span class="path8"></span></span>
+            <span *ngIf="isSelected1" class="icon-E01"><span class="path1"></span><span class="path2"></span><span
+              class="path3"></span><span class="path4"></span><span class="path5"></span><span
+              class="path6"></span><span class="path7"></span><span class="path8"></span></span>
           </div>
           <div class="col-2 col-half-offset" (click)="selectAnswer(2)">
-            <span *ngIf="isSelected2" class="icon-E02"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span></span>
-            <span *ngIf="!isSelected2" class="icon-GE02"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span></span>
+            <span *ngIf="isSelected2" class="icon-E02"><span class="path1"></span><span class="path2"></span><span
+              class="path3"></span><span class="path4"></span><span class="path5"></span><span
+              class="path6"></span><span class="path7"></span><span class="path8"></span></span>
+            <span *ngIf="!isSelected2" class="icon-GE02"><span class="path1"></span><span class="path2"></span><span
+              class="path3"></span><span class="path4"></span><span class="path5"></span><span
+              class="path6"></span><span class="path7"></span></span>
           </div>
           <div class="col-2 col-half-offset" (click)="selectAnswer(3)">
-            <span *ngIf="isSelected3" class="icon-E03"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span></span>
-            <span *ngIf="!isSelected3" class="icon-GE03"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span></span>
+            <span *ngIf="isSelected3" class="icon-E03"><span class="path1"></span><span class="path2"></span><span
+              class="path3"></span><span class="path4"></span><span class="path5"></span><span
+              class="path6"></span><span class="path7"></span></span>
+            <span *ngIf="!isSelected3" class="icon-GE03"><span class="path1"></span><span class="path2"></span><span
+              class="path3"></span><span class="path4"></span><span class="path5"></span><span
+              class="path6"></span><span class="path7"></span></span>
           </div>
           <div class="col-2 col-half-offset" (click)="selectAnswer(4)">
-            <span *ngIf="isSelected4" class="icon-E04"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></span>
-            <span *ngIf="!isSelected4" class="icon-GE04"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></span>
+            <span *ngIf="isSelected4" class="icon-E04"><span class="path1"></span><span class="path2"></span><span
+              class="path3"></span><span class="path4"></span><span class="path5"></span></span>
+            <span *ngIf="!isSelected4" class="icon-GE04"><span class="path1"></span><span class="path2"></span><span
+              class="path3"></span><span class="path4"></span><span class="path5"></span></span>
           </div>
           <div class="col-2 col-half-offset" (click)="selectAnswer(5)">
-            <span *ngIf="isSelected5" class="icon-E05"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span></span>
-            <span *ngIf="!isSelected5" class="icon-GE05"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span></span>
+            <span *ngIf="isSelected5" class="icon-E05"><span class="path1"></span><span class="path2"></span><span
+              class="path3"></span><span class="path4"></span><span class="path5"></span><span
+              class="path6"></span><span class="path7"></span><span class="path8"></span><span
+              class="path9"></span><span class="path10"></span></span>
+            <span *ngIf="!isSelected5" class="icon-GE05"><span class="path1"></span><span class="path2"></span><span
+              class="path3"></span><span class="path4"></span><span class="path5"></span><span
+              class="path6"></span><span class="path7"></span><span class="path8"></span><span
+              class="path9"></span><span class="path10"></span></span>
           </div>
         </div>
       </div>
 
       <!--   -------------------------- 5 dots --------------------------   -->
       <div id="dots-5" class="container container-padding" *ngIf="is5Dots || currentQuestion.type === 'fiveDots'">
-        <div class="row" style="height: 50px; line-height: 50px;">
+        <div class="row" style="height: 20vw; line-height: 20vw;">
           <div class="col-2 col-padding" (click)="selectAnswer(1)">
-            <div *ngIf="!isSelected1" class="icon-Unselected-green large-scale"></div>
-            <div *ngIf="isSelected1" class="icon-selected-green large-scale"></div>
+            <div *ngIf="!isSelected1" class="icon-Unselected-red large-scale"></div>
+            <div *ngIf="isSelected1" class="icon-selected-red large-scale"></div>
           </div>
           <div class="col-2 col-half-offset" (click)="selectAnswer(2)">
-            <div *ngIf="!isSelected2" class="icon-Unselected-green medium-scale"></div>
-            <div *ngIf="isSelected2" class="icon-selected-green medium-scale"></div>
+            <div *ngIf="!isSelected2" class="icon-Unselected-red medium-scale"></div>
+            <div *ngIf="isSelected2" class="icon-selected-red medium-scale"></div>
           </div>
           <div class="col-2 col-half-offset" (click)="selectAnswer(3)">
             <div *ngIf="!isSelected3" class="icon-Unselected-gray small-scale"></div>
             <div *ngIf="isSelected3" class="icon-selected-gray small-scale"></div>
           </div>
           <div class="col-2 col-half-offset" (click)="selectAnswer(4)">
-            <div *ngIf="!isSelected4" class="icon-Unselected-red medium-scale"></div>
-            <div *ngIf="isSelected4" class="icon-selected-red medium-scale"></div>
+            <div *ngIf="!isSelected4" class="icon-Unselected-green medium-scale"></div>
+            <div *ngIf="isSelected4" class="icon-selected-green medium-scale"></div>
           </div>
           <div class="col-2 col-half-offset" (click)="selectAnswer(5)">
-            <div *ngIf="!isSelected5" class="icon-Unselected-red large-scale"></div>
-            <div *ngIf="isSelected5" class="icon-selected-red large-scale"></div>
+            <div *ngIf="!isSelected5" class="icon-Unselected-green large-scale"></div>
+            <div *ngIf="isSelected5" class="icon-selected-green large-scale"></div>
+          </div>
+        </div>
+        <div class="row text" style="font-size: 3vw; color: #7A7A7A;">
+          <div class="col-2 col-padding" (click)="selectAnswer(1)">
+            Disagree
+          </div>
+          <div class="col-2 col-half-offset" (click)="selectAnswer(2)">
+
+          </div>
+          <div class="col-2 col-half-offset" (click)="selectAnswer(3)">
+
+          </div>
+          <div class="col-2 col-half-offset" (click)="selectAnswer(4)">
+
+          </div>
+          <div class="col-2 col-half-offset" style="text-align: right;" (click)="selectAnswer(5)">
+            Agree
           </div>
         </div>
       </div>
 
       <!--   -------------------------- 4 dots --------------------------   -->
       <div id="dots-4" class="container container-padding" *ngIf="is4Dots|| currentQuestion.type === 'fourDots'">
-        <div class="row" style="height: 50px; line-height: 50px;">
+        <div class="row" style="height: 20vw; line-height: 20vw;">
           <div class="col-auto" (click)="selectAnswer(1)">
-            <div *ngIf="!isSelected1" class="icon-Unselected-green large-scale"></div>
-            <div *ngIf="isSelected1" class="icon-selected-green large-scale"></div>
+            <div *ngIf="!isSelected1" class="icon-Unselected-red large-scale"></div>
+            <div *ngIf="isSelected1" class="icon-selected-red large-scale"></div>
           </div>
           <div class="col-3" (click)="selectAnswer(2)">
-            <div *ngIf="!isSelected2" class="icon-Unselected-green medium-scale"></div>
-            <div *ngIf="isSelected2" class="icon-selected-green medium-scale"></div>
+            <div *ngIf="!isSelected2" class="icon-Unselected-red medium-scale"></div>
+            <div *ngIf="isSelected2" class="icon-selected-red medium-scale"></div>
           </div>
           <div class="col-3" (click)="selectAnswer(3)">
-            <div *ngIf="!isSelected3" class="icon-Unselected-red medium-scale"></div>
-            <div *ngIf="isSelected3" class="icon-selected-red medium-scale"></div>
+            <div *ngIf="!isSelected3" class="icon-Unselected-green medium-scale"></div>
+            <div *ngIf="isSelected3" class="icon-selected-green medium-scale"></div>
           </div>
           <div class="col-auto" (click)="selectAnswer(4)">
-            <div *ngIf="!isSelected4" class="icon-Unselected-red large-scale"></div>
-            <div *ngIf="isSelected4" class="icon-selected-red large-scale"></div>
+            <div *ngIf="!isSelected4" class="icon-Unselected-green large-scale"></div>
+            <div *ngIf="isSelected4" class="icon-selected-green large-scale"></div>
+          </div>
+        </div>
+        <div class="row text" style="font-size: 3vw; color:#7A7A7A;">
+          <div class="col-auto" (click)="selectAnswer(1)">
+            Disagree
+          </div>
+          <div class="col-3" (click)="selectAnswer(2)">
+
+          </div>
+          <div class="col-3" (click)="selectAnswer(3)">
+
+          </div>
+          <div class="col-auto" style="text-align: right" (click)="selectAnswer(4)">
+            Agree
           </div>
         </div>
       </div>
@@ -132,9 +184,12 @@
       <div style="text-align: center;
     position: relative;
     width: 100%;">
-        <button *ngIf="hasAnswered && !isLastQuestion" mat-flat-button class="start-back-btn" (click)="nextQuestion()">Next</button>
+        <button *ngIf="hasAnswered && !isLastQuestion" mat-flat-button class="start-back-btn" (click)="nextQuestion()">
+          Next
+        </button>
         <button *ngIf="!hasAnswered && !isLastQuestion" [disabled]=true class="start-back-btn-disable">Next</button>
-        <button *ngIf="hasAnswered && isLastQuestion" mat-flat-button class="start-back-btn" (click)="goForm()">Finish</button>
+        <button *ngIf="hasAnswered && isLastQuestion" mat-flat-button class="start-back-btn" (click)="goForm()">Finish
+        </button>
         <button *ngIf="!hasAnswered && isLastQuestion" [disabled]=true class="start-back-btn-disable">Finish</button>
       </div>
     </mat-card>

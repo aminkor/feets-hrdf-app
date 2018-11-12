@@ -3,8 +3,8 @@ export class UserForm {
   constructor(
     public id: number,
     public titles: string,
-    public name: string,
-    public alterEgo?: string,
+    public firstName: string,
+    public lastName: string,
     public emailAdd?: any,
     public phoneNumber?: string,
     public companyName?: string,

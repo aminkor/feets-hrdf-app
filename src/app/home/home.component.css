@@ -7,6 +7,18 @@
   padding-left: 15vw;
   display: table; }
 
+.circle {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  vertical-align: middle; }
+  .circle svg {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
 .whiteBg {
   background-color: #FFF;
   margin: 8vw;
@@ -55,6 +67,9 @@
   text-align: center;
   font-size: 11vw;
   margin: 26vw 0; }
+  #dots-5 .text .col-2 {
+    padding-left: 0px !important;
+    padding-right: 0px !important; }
 
 #dots-4 {
   text-align: center;
@@ -82,18 +97,6 @@
   border-radius: 400%;
   padding-bottom: 0% !important;
   box-shadow: 0px 0px 13px #aaaaaa; }
-
-.circle {
-  display: inline-block;
-  position: relative;
-  width: 100%;
-  height: 90vh;
-  vertical-align: middle; }
-  .circle svg {
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0; }
 
 .large-scale {
   font-size: 10vw !important; }

@@ -11,9 +11,9 @@ export class FormComponent implements OnInit {
   constructor(private router: Router) {
   }
 
-  titles = ['Mr', 'Mrs', 'Ms', 'Sir'];
+  titles = ['Mr', 'Mrs', 'Ms'];
   // model = new UserForm(1, this.titles[2], 'Fatin Nabilah', 'whatever', 'fatin@gmail.com', '0173427423', 'Feets', 'Mayor', false);
-  model = new UserForm(1,'', '','','','','','',false);
+  model = new UserForm(1, '', '', '', '', '', '', false);
   submitted = false;
 
   onSubmit() {

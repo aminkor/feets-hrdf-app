@@ -9,7 +9,7 @@ Error: File to import not found or unreadable: ~bootstrap/scss/bootstrap-reboot.
 5: @import '~bootstrap/scss/bootstrap-grid';
 6: @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
 7: @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-8: 
+8: @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 9: 
 
 Backtrace:
@@ -56,4 +56,4 @@ styles.scss:4
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: ~bootstrap/scss/bootstrap-reboot.\A         on line 4 of styles.scss\A \A 1: /* You can add global styles to this file, and also import other style files */\A 2: @import \"styles-variables\";\A 3: \A 4: @import '~bootstrap/scss/bootstrap-reboot';\A 5: @import '~bootstrap/scss/bootstrap-grid';\A 6: @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');\A 7: @import url(\"https://fonts.googleapis.com/icon?family=Material+Icons\");\A 8: \A 9: "; }
+  content: "Error: File to import not found or unreadable: ~bootstrap/scss/bootstrap-reboot.\A         on line 4 of styles.scss\A \A 1: /* You can add global styles to this file, and also import other style files */\A 2: @import \"styles-variables\";\A 3: \A 4: @import '~bootstrap/scss/bootstrap-reboot';\A 5: @import '~bootstrap/scss/bootstrap-grid';\A 6: @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');\A 7: @import url(\"https://fonts.googleapis.com/icon?family=Material+Icons\");\A 8: @import '@angular/material/prebuilt-themes/deeppurple-amber.css';\A 9: "; }
