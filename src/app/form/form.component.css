@@ -50,4 +50,8 @@ label {
   border-color: transparent;
   width: 100%; }
 
+.padding-right-left-7px {
+  padding-left: 7px !important;
+  padding-right: 7px !important; }
+
 /*# sourceMappingURL=form.component.css.map */

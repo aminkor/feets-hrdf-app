@@ -6,7 +6,8 @@ export class UserForm {
     public firstName: string,
     public lastName: string,
     public emailAdd?: any,
-    public phoneNumber?: string,
+    public countryCode?: string,
+    public phoneNumber?: number,
     public companyName?: string,
     public position?: string,
     public likeToKnowMore?: boolean
