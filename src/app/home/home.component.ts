@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {MatIconRegistry} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   public isSelected3: boolean;
   public isSelected4: boolean;
   public isSelected5: boolean;
+  public userAnswer;
   public isLastQuestion: boolean;
   // Progress circle bar
   current: number;
@@ -31,6 +32,7 @@ export class HomeComponent implements OnInit {
     {questionNum: 3, question: '3 Days Of weddings a year', type: 'fiveDots'},
     {questionNum: 4, question: '4 Days Of weddings a year', type: 'emoji'},
   ];
+
   constructor(private router: Router, private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
     this.isQuestion = false;
     this.isEmoji = false;
@@ -51,22 +53,25 @@ export class HomeComponent implements OnInit {
     // );
     this.currentQuestion = this.questionsArray[this.questionIndex];
   }
+
   ngOnInit() {
 
   }
 
   goForm() {
-    this.router.navigate(['Form']);
+    // this.router.navigate(['Form']);
+    console.log('Results = ');
+    console.log(this.questionsArray);
   }
 
-  toggleIsQuestion(){
+  toggleIsQuestion() {
     this.isQuestion = !this.isQuestion;
   }
 
   selectAnswer(num) {
     if (num === 1) {
       this.isSelected1 = true;
-      console.log('1 is selected');
+      // console.log('1 is selected');
       this.isSelected2 = false;
       this.isSelected3 = false;
       this.isSelected4 = false;
@@ -74,7 +79,7 @@ export class HomeComponent implements OnInit {
       this.hasAnswered = true;
     } else if (num === 2) {
       this.isSelected2 = true;
-      console.log('2 is selected');
+      // console.log('2 is selected');
       this.isSelected1 = false;
       this.isSelected3 = false;
       this.isSelected4 = false;
@@ -82,7 +87,7 @@ export class HomeComponent implements OnInit {
       this.hasAnswered = true;
     } else if (num === 3) {
       this.isSelected3 = true;
-      console.log('3 is selected');
+      // console.log('3 is selected');
       this.isSelected2 = false;
       this.isSelected1 = false;
       this.isSelected4 = false;
@@ -90,7 +95,7 @@ export class HomeComponent implements OnInit {
       this.hasAnswered = true;
     } else if (num === 4) {
       this.isSelected4 = true;
-      console.log('4 is selected');
+      // console.log('4 is selected');
       this.isSelected2 = false;
       this.isSelected3 = false;
       this.isSelected1 = false;
@@ -98,18 +103,23 @@ export class HomeComponent implements OnInit {
       this.hasAnswered = true;
     } else if (num === 5) {
       this.isSelected5 = true;
-      console.log('5 is selected');
+      // console.log('5 is selected');
       this.isSelected2 = false;
       this.isSelected3 = false;
       this.isSelected4 = false;
       this.isSelected1 = false;
       this.hasAnswered = true;
     }
+    this.userAnswer = num;
+    console.log('user selected = ' + this.userAnswer);
+    const new_obj = {'userAnswer': this.userAnswer};
+    Object.assign(this.currentQuestion, new_obj);
   }
+
 
   nextQuestion() {
     // increment the counter
-    this.questionIndex ++;
+    this.questionIndex++;
     this.current = this.questionIndex + 1;
     this.currentQuestion = this.questionsArray[this.questionIndex];
     this.isSelected1 = false;
@@ -123,4 +133,5 @@ export class HomeComponent implements OnInit {
     }
     this.hasAnswered = false;
   }
+
 }

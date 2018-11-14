@@ -54,6 +54,7 @@
       <mat-card-content id="Question" class="question-text">
         {{currentQuestion.question}}
       </mat-card-content>
+      <!--<p>{{currentQuestion | json}}</p>-->
 
       <div id="emoji" class="container" *ngIf="isEmoji || currentQuestion.type === 'emoji'">
         <div class="row" style="line-height: 50px; height: 50px;">
@@ -184,12 +185,9 @@
       <div style="text-align: center;
     position: relative;
     width: 100%;">
-        <button *ngIf="hasAnswered && !isLastQuestion" mat-flat-button class="start-back-btn" (click)="nextQuestion()">
-          Next
-        </button>
+        <button *ngIf="hasAnswered && !isLastQuestion" mat-flat-button class="start-back-btn" (click)="nextQuestion()">Next</button>
         <button *ngIf="!hasAnswered && !isLastQuestion" [disabled]=true class="start-back-btn-disable">Next</button>
-        <button *ngIf="hasAnswered && isLastQuestion" mat-flat-button class="start-back-btn" (click)="goForm()">Finish
-        </button>
+        <button *ngIf="hasAnswered && isLastQuestion" mat-flat-button class="start-back-btn" (click)="goForm()">Finish</button>
         <button *ngIf="!hasAnswered && isLastQuestion" [disabled]=true class="start-back-btn-disable">Finish</button>
       </div>
     </mat-card>
