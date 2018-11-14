@@ -1,7 +1,7 @@
 .form-introduction{
   color: #7A7A7A;
-  margin: 7vw;
-  font-size: 3vw;
+  margin: 7vw 7vw 2vw 7vw;
+  font-size: 4vw;
 }
 
 .circle {
@@ -62,7 +62,29 @@ label{
   width: 100%;
 }
 
-.padding-right-left-7px{
-  padding-left: 7px !important;
-  padding-right: 7px !important;
+.padding-right-3pt5px{
+  padding-right: 3.5px !important;
 }
+
+.padding-left-3pt5px{
+  padding-left: 3.5px !important;
+}
+
+.col-half-offset{
+  margin-left: 1.966667%;
+}
+
+.col-half-offset-on{
+  margin-left: 3.366667%;
+}
+
+.nopadding{
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+
+
+//.row{
+//  margin-left: initial !important;
+//  margin-right: initial !important;
+//}
