@@ -30,4 +30,10 @@ export class FormComponent implements OnInit {
   goHome() {
     this.router.navigate(['']);
   }
+
+  goDashboard() {
+    this.router.navigate(['Dashboard']);
+
+  }
+
 }

@@ -24,6 +24,8 @@ export class HomeComponent implements OnInit {
   // Progress circle bar
   current: number;
   max: number;
+  currentPlusOne: number;
+
   currentQuestion;
   questionIndex = 0;
   questionsArray = [
@@ -45,6 +47,7 @@ export class HomeComponent implements OnInit {
     this.isSelected4 = false;
     this.isSelected5 = false;
     this.isLastQuestion = false;
+    this.current = 1;
     this.max = this.questionsArray.length;
 
     // this.matIconRegistry.addSvgIcon(
@@ -59,7 +62,7 @@ export class HomeComponent implements OnInit {
   }
 
   goForm() {
-    // this.router.navigate(['Form']);
+    this.router.navigate(['Form']);
     console.log('Results = ');
     console.log(this.questionsArray);
   }
@@ -120,7 +123,8 @@ export class HomeComponent implements OnInit {
   nextQuestion() {
     // increment the counter
     this.questionIndex++;
-    this.current = this.questionIndex + 1;
+    this.current++;
+    this.currentPlusOne = this.questionIndex + 1;
     this.currentQuestion = this.questionsArray[this.questionIndex];
     this.isSelected1 = false;
     this.isSelected2 = false;
@@ -128,7 +132,9 @@ export class HomeComponent implements OnInit {
     this.isSelected4 = false;
     this.isSelected5 = false;
     console.log('current = ' + this.current);
-    if (this.current === this.questionsArray.length) {
+    console.log('max = ' + this.max);
+    console.log('questionIndex = ' + this.questionIndex);
+    if (this.currentPlusOne === this.max) {
       this.isLastQuestion = true;
     }
     this.hasAnswered = false;

@@ -11,7 +11,7 @@
   </svg>
 
   <p class="form-introduction">Please fill up the information below. We will email you your results and some other cool stuff!</p>
-  <!--<p class="form-introduction">{{diagnostic}}</p>-->
+  <p class="form-introduction">{{diagnostic}}</p>
 
   <div style="margin:0vw 7vw 7vw 7vw;">
     <form #form="ngForm">
@@ -77,7 +77,7 @@
         </div>
         <div class="row">
           <div class="col-3" style="padding-right: 7px;">
-            <input type="text"  class="form-control" id="cc" placeholder="+60"
+            <input type="tel"  class="form-control" id="cc" placeholder="+60" [maxlength]="4"
                    [(ngModel)]="model.countryCode" name="cc" #cc="ngModel">
           </div>
           <div class="col-8 col-half-offset-on nopadding">
@@ -112,7 +112,7 @@
         <label style="padding-left: 7vw; line-height: 6vw" for="likeToKnowMore">I would like to know more about FEETS</label>
       </div>
 
-      <button type="submit" class="btn btn-success" (click)="goHome()">Send me my results</button>
+      <button type="submit" class="btn btn-success" (click)="goDashboard()">Send me my results</button>
 
     </form>
   </div>

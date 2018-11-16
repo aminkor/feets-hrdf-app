@@ -10,12 +10,14 @@ import { FormComponent } from './form/form.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
+import { DashboardSimulationComponent } from './dashboard-simulation/dashboard-simulation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     FormComponent,
+    DashboardSimulationComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,185 @@
+<script src="../form/form.component.ts"></script>
+<div class="dashboard-container">
+  <div class="dashboard-white-container">
+    <div class="logo-description">
+      <div style="margin: 10px auto; width: 14vw"><img width="100%" src="../assets/img/feets-logo-gradient.png"></div>
+      <div>Making employee engagement fun and rewarding</div>
+      <div style="border-bottom: #4f4f4f 1px;"></div>
+      <div>The analytics below represent our booth visitors' <span class="text">Feet's Level</span> with their
+        organizations.
+      </div>
+    </div>
+    <!--Grid-->
+    <div style="text-align: -webkit-center;">
+      <div class="row title-label" style="padding: 1vw; ">
+        <div class="col-3">
+          Feet's booth visitors
+        </div>
+        <div class="col-3">
+          STRESS
+        </div>
+        <div class="col-3">
+          ENGAGEMENT
+        </div>
+        <div class="col-3">
+          HAPPINESS
+        </div>
+      </div>
+      <div class="row" style="padding: 1vw; text-align: -webkit-center;">
+        <div class="col-3 booth-visitor-number">
+          {{activeUsersDummyVal}}
+        </div>
+        <div class="col-3">
+          <div class="wording-chart-container">
+            <div class="wording-chart-container2">
+              <div>
+                <div>
+                  {{stressDummyVal}}/{{activeUsersDummyVal}}
+                </div>
+                <div class="number-percentange" style="color: #e53935; margin: 0.2vw 0;">%</div>
+                <div>stressed</div>
+              </div>
+            </div>
+            <div style="position:relative; height: 250px; width: 250px;">
+              <canvas id="doughnut1" width="220" height="220"
+                      style="position:absolute; border-radius: 25px; top: 50%; left: 50%; transform: translate(-50%, -50%);"></canvas>
+              <canvas id="doughnut2" width="250" height="250" style="position:absolute; top: 0px; left: 0px"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="wording-chart-container">
+            <div class="wording-chart-container2">
+              <div>
+                <div>
+                  {{engagementDummyVal}}/{{activeUsersDummyVal}}
+                </div>
+                <div class="number-percentange" style="color: #fbc02d; margin: 0.2vw 0;">%</div>
+                <div>engaged</div>
+              </div>
+            </div>
+            <div style="position:relative; height: 250px; width: 250px">
+              <canvas id="doughnut3" width="220" height="220"
+                      style="position:absolute; border-radius: 25px; top: 50%; left: 50%; transform: translate(-50%, -50%);"></canvas>
+              <canvas id="doughnut4" width="250" height="250" style="position:absolute; top: 0px; left: 0px"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="wording-chart-container">
+            <div class="wording-chart-container2">
+              <div>
+                <div>
+                  {{happinessDummyVal}}/{{activeUsersDummyVal}}
+                </div>
+                <div class="number-percentange" style="color: #4caf50; margin: 0.2vw 0;">%</div>
+                <div>happy</div>
+              </div>
+            </div>
+            <div style="position:relative; height: 250px; width: 250px">
+              <canvas id="doughnut5" width="220" height="220"
+                      style="position:absolute; border-radius: 25px; top: 50%; left: 50%; transform: translate(-50%, -50%);"></canvas>
+              <canvas id="doughnut6" width="250" height="250" style="position:absolute; top: 0px; left: 0px"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <div class="col-5 gender-legend">
+            <span class="icon-GE05"><span class="path1"></span><span class="path2"></span><span
+              class="path3"></span><span class="path4"></span><span class="path5"></span><span
+              class="path6"></span><span class="path7"></span><span class="path8"></span><span
+              class="path9"></span><span class="path10"></span></span>
+          </div>
+          <div class="col-5 gender-legend">
+            <span class="icon-E05 "><span class="path1"></span><span class="path2"></span><span
+              class="path3"></span><span class="path4"></span><span class="path5"></span><span
+              class="path6"></span><span class="path7"></span><span class="path8"></span><span
+              class="path9"></span><span class="path10"></span></span>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="col-5 gender-legend">
+            <span class="icon-GE05"><span class="path1"></span><span class="path2"></span><span
+              class="path3"></span><span class="path4"></span><span class="path5"></span><span
+              class="path6"></span><span class="path7"></span><span class="path8"></span><span
+              class="path9"></span><span class="path10"></span></span>
+          </div>
+          <div class="col-5 gender-legend">
+            <span class="icon-E05 "><span class="path1"></span><span class="path2"></span><span
+              class="path3"></span><span class="path4"></span><span class="path5"></span><span
+              class="path6"></span><span class="path7"></span><span class="path8"></span><span
+              class="path9"></span><span class="path10"></span></span>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="col-5 gender-legend">
+            <span class="icon-GE05"><span class="path1"></span><span class="path2"></span><span
+              class="path3"></span><span class="path4"></span><span class="path5"></span><span
+              class="path6"></span><span class="path7"></span><span class="path8"></span><span
+              class="path9"></span><span class="path10"></span></span>
+          </div>
+          <div class="col-5 gender-legend">
+            <span class="icon-E05 "><span class="path1"></span><span class="path2"></span><span
+              class="path3"></span><span class="path4"></span><span class="path5"></span><span
+              class="path6"></span><span class="path7"></span><span class="path8"></span><span
+              class="path9"></span><span class="path10"></span></span>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="col-5 gender-legend">
+            <span class="icon-GE05"><span class="path1"></span><span class="path2"></span><span
+              class="path3"></span><span class="path4"></span><span class="path5"></span><span
+              class="path6"></span><span class="path7"></span><span class="path8"></span><span
+              class="path9"></span><span class="path10"></span></span>
+          </div>
+          <div class="col-5 gender-legend">
+            <span class="icon-E05 "><span class="path1"></span><span class="path2"></span><span
+              class="path3"></span><span class="path4"></span><span class="path5"></span><span
+              class="path6"></span><span class="path7"></span><span class="path8"></span><span
+              class="path9"></span><span class="path10"></span></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <div class="col-5 gender-legend percentage-gender-legend boy">
+            %
+          </div>
+          <div class="col-5 gender-legend percentage-gender-legend girl">
+            %
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="col-5 gender-legend percentage-gender-legend boy">
+            %
+          </div>
+          <div class="col-5 gender-legend percentage-gender-legend girl">
+            %
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="col-5 gender-legend percentage-gender-legend boy">
+            %
+          </div>
+          <div class="col-5 gender-legend percentage-gender-legend girl">
+            %
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="col-5 gender-legend percentage-gender-legend boy">
+            %
+          </div>
+          <div class="col-5 gender-legend percentage-gender-legend girl">
+            %
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard-lightgray-container">
+      Disclaimer: The analytics shown are designed only for simulation purposes.Feet's real structure is more
+      complicated
+      delivering better and more insightful data.
+    </div>
+  </div>
