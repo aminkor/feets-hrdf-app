@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserForm} from '../_models/UserForm';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {HrdfServerProviderService} from '../providers/hrdf-server-provider.service';
 
 @Component({
   selector: 'app-form',
@@ -8,15 +9,39 @@ import {Router} from '@angular/router';
   styleUrls: ['./form.component.scss', '../../assets/forms.scss']
 })
 export class FormComponent implements OnInit {
-  constructor(private router: Router) {
+  private answers;
+
+  constructor(private router: Router,
+              private hrdfserver: HrdfServerProviderService,
+              private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params => {
+      this.answers = params['results'];
+      for (let i = 0; i < this.answers.length; i++){
+        console.log(this.answers[i]);
+      }
+    });
   }
 
   titles = ['Mr', 'Mrs', 'Ms'];
-  model = new UserForm(1, '', '', '', '', '', '', '', '', false);
+  model = new UserForm('', this.answers, '', '', '', '', '', false, '+601', '');
   submitted = false;
 
   onSubmit() {
-    this.submitted = true;
+    // this.submitted = true;
+    // this.goDashboard();
+    console.log('answers = ');
+    console.log(this.answers);
+    console.log();
+    console.log(this.model);
+
+    this.hrdfserver.createVisitor(this.model)
+      .subscribe(
+        data => {
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
   }
 
   // TODO: Remove this when we're done
@@ -33,7 +58,7 @@ export class FormComponent implements OnInit {
 
   goDashboard() {
     this.router.navigate(['Dashboard']);
-
+    // console.log(this.model);
   }
 
 }

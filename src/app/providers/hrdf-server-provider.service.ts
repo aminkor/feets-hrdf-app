@@ -1,17 +1,20 @@
 import {Injectable} from '@angular/core';
-import {SERVER_NAME} from './config';
+// import {SERVER_NAME} from './config';
 import {Http, RequestOptions, Headers, Response} from '@angular/http';
+import {environment} from '../../environments/environment.prod';
+import {UserForm} from '../_models/UserForm';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class HrdfServerProviderService {
-  endPointRootURL = SERVER_NAME + '/api/v1';
+  // endPointRootURL = SERVER_NAME + '/api/v1';
 
-  constructor(public http: Http) {
+  constructor(private http: HttpClient) {
     console.log('Hello HrdfServerProviderService Provider');
   }
 
-  private handleError(error: Response | any) {
-  }
+  // private handleError(error: Response | any) {
+  // }
 
   // userSurveyAnswers(learner: Learner) {
   // var serviceRoute = this.endPointRootURL + '/notifications/read';
@@ -28,6 +31,13 @@ export class HrdfServerProviderService {
   // var response = this.http.post(serviceRoute, body, options).map(res => res.json());
   // return response;
 // }
+
+  createVisitor(user: UserForm) {
+    console.log('this is in server = ');
+    console.log(user);
+    return this.http.post(`${environment.apiUrl}/visitor/create/`, user);
+  }
+
 
 }
 

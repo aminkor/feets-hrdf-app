@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {NavigationExtras, Router} from '@angular/router';
 import {MatIconRegistry} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
 
@@ -29,10 +29,13 @@ export class HomeComponent implements OnInit {
   currentQuestion;
   questionIndex = 0;
   questionsArray = [
-    {questionNum: 1, question: '1 Days Of weddings a year', type: 'emoji'},
-    {questionNum: 2, question: '2 Days Of weddings a year', type: 'fourDots'},
-    {questionNum: 3, question: '3 Days Of weddings a year', type: 'fiveDots'},
-    {questionNum: 4, question: '4 Days Of weddings a year', type: 'emoji'},
+    {questionNum: 1, question: 'In general, how satisfied are you with your life?', type: 'emoji'},
+    {questionNum: 2, question: 'I feel stressed when dealing with conflicting priorities', type: 'fiveDots'},
+    {questionNum: 3, question: 'with eyes closed, I can recite our organization\'s vision & mission.', type: 'fiveDots'},
+    {questionNum: 4, question: 'I can\'t honestly say what I really think or get things off my chest at work.', type: 'fiveDots'},
+    {questionNum: 5, question: 'Where I work, I could usually do a much better job if I was given more time', type: 'fiveDots'},
+    {questionNum: 6, question: 'If you were given the chance, would you reapply to your current job?', type: 'emoji'},
+    {questionNum: 7, question: 'I would recommend my company as a great place to work at', type: 'fiveDots'},
   ];
 
   constructor(private router: Router, private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
@@ -62,7 +65,12 @@ export class HomeComponent implements OnInit {
   }
 
   goForm() {
-    this.router.navigate(['Form']);
+    const navigationExtras: NavigationExtras = {
+      queryParams: {
+        'results': this.questionsArray
+      }
+    };
+    this.router.navigate(['Form'], navigationExtras);
     console.log('Results = ');
     console.log(this.questionsArray);
   }

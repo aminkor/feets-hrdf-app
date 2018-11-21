@@ -1,16 +1,16 @@
 export class UserForm {
 
   constructor(
-    public id: number,
-    public titles: string,
-    public firstName: string,
-    public lastName: string,
-    public emailAdd?: any,
+    public title: string,
+    public answer: any[],
+    public firstname: string,
+    public lastname: string,
+    public email: any,
+    public company: string,
+    public position: string,
+    public check_box: boolean,
     public countryCode?: string,
-    public phoneNumber?: string,
-    public companyName?: string,
-    public position?: string,
-    public likeToKnowMore?: boolean
+    public phone?: string,
   ) {  }
 
 }

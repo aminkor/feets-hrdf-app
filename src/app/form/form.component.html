@@ -10,15 +10,15 @@
     <circle fill="url(#MyGradient)" transform="rotate(45)" opacity="0.4" cx="0" cy="0" r="70%"></circle>
   </svg>
 
-  <p class="form-introduction">Please fill up the information below. We will email you your results and some other cool stuff!</p>
-  <p class="form-introduction">{{diagnostic}}</p>
+  <p class="form-introduction" *ngIf="!submitted">Please fill up the information below. We will email you your results and some other cool stuff!</p>
+  <!--<p class="form-introduction">{{diagnostic}}</p>-->
 
-  <div style="margin:0vw 7vw 7vw 7vw;">
-    <form #form="ngForm">
+  <div style="margin:0vw 7vw 7vw 7vw;" *ngIf="!submitted">
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
       <div class="form-group" style="margin-top: 1em">
         <label for="title">call me</label>
         <select class="form-control" id="title" required
-                [(ngModel)]="model.titles" name="title" #title="ngModel" style="color: darkgrey;">
+                [(ngModel)]="model.title" name="title" #title="ngModel" style="color: darkgrey;">
           <option value="" disabled selected>Select your option</option>
           <option *ngFor="let title of titles" [value]="title">{{title}}</option>
         </select>
@@ -41,7 +41,7 @@
           <div class="col-6" style="padding-right: 7px;">
             <input type="text" class="form-control" id="firstName"
                    required placeholder="First Name"
-                   [(ngModel)]="model.firstName" name="firstName" #firstName="ngModel">
+                   [(ngModel)]="model.firstname" name="firstName" #firstName="ngModel">
             <div [hidden]="firstName.valid || firstName.pristine"
                  class="alert alert-danger">
               First Name is required
@@ -50,7 +50,7 @@
           <div class="col-5 col-half-offset-on nopadding">
             <input type="text" class="form-control" id="lastName"
                    required placeholder="Last Name"
-                   [(ngModel)]="model.lastName" name="lastName" #lastName="ngModel">
+                   [(ngModel)]="model.lastname" name="lastName" #lastName="ngModel">
             <div [hidden]="lastName.valid || lastName.pristine"
                  class="alert alert-danger">
               Last Name is required
@@ -62,7 +62,7 @@
       <div class="form-group">
         <label for="email">Email Address</label>
         <input type="email" class="form-control" id="email" required placeholder="example@email.com"
-               [(ngModel)]="model.emailAdd" name="email" pattern="[^ @]*@[^ @]*" #email="ngModel">
+               [(ngModel)]="model.email" name="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #email="ngModel">
         <div [hidden]="email.valid || email.pristine"
              class="alert alert-danger">
           Email Address is required
@@ -77,20 +77,20 @@
         </div>
         <div class="row">
           <div class="col-3" style="padding-right: 7px;">
-            <input type="tel"  class="form-control" id="cc" placeholder="+60" [maxlength]="4"
+            <input type="tel"  class="form-control" id="cc" placeholder="+601" [maxlength]="4"
                    [(ngModel)]="model.countryCode" name="cc" #cc="ngModel">
           </div>
           <div class="col-8 col-half-offset-on nopadding">
-            <input type="tel"  class="form-control" id="phoneNum" placeholder="98765432" [maxlength]="8"
-                   [(ngModel)]="model.phoneNumber" name="phoneNum" #phoneNum="ngModel">
+            <input type="tel" class="form-control" id="phoneNum" placeholder="98765432" [maxlength]="8"
+                   [(ngModel)]="model.phone" name="phoneNum" #phoneNum="ngModel">
           </div>
         </div>
       </div>
 
       <div class="form-group">
         <label for="companyName">Company Name</label>
-        <input type="text"  class="form-control" id="companyName" required placeholder="Company Sdn Bhd"
-               [(ngModel)]="model.companyName" name="companyName" #companyName="ngModel">
+        <input type="text" class="form-control" id="companyName" required placeholder="Company Sdn Bhd"
+               [(ngModel)]="model.company" name="companyName" #companyName="ngModel">
         <div [hidden]="phoneNum.valid || phoneNum.pristine"
              class="alert alert-danger">
           Company Name is required
@@ -108,11 +108,11 @@
       </div>
 
       <div class="form-group">
-        <mat-checkbox style="margin-left: 1%;" type="checkbox" id="likeToKnowMore" [(ngModel)]="model.likeToKnowMore" name="likeToKnowMore"></mat-checkbox>
+        <mat-checkbox style="margin-left: 1%;" type="checkbox" id="likeToKnowMore" [(ngModel)]="model.check_box" name="likeToKnowMore"></mat-checkbox>
         <label style="padding-left: 7vw; line-height: 6vw" for="likeToKnowMore">I would like to know more about FEETS</label>
       </div>
 
-      <button type="submit" class="btn btn-success" (click)="goDashboard()">Send me my results</button>
+      <button type="submit" class="btn btn-success" [disabled]="!form.form.valid">Send me my results</button>
 
     </form>
   </div>

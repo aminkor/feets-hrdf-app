@@ -11,6 +11,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
 import { DashboardSimulationComponent } from './dashboard-simulation/dashboard-simulation.component';
+import {HrdfServerProviderService} from './providers/hrdf-server-provider.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { DashboardSimulationComponent } from './dashboard-simulation/dashboard-s
     MatCheckboxModule,
     routing
   ],
-  providers: [],
+  providers: [
+    HrdfServerProviderService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
