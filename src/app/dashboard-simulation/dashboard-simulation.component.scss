@@ -48,6 +48,11 @@ $map-url: url('/src/assets/img/map_bg.svg');
   padding: 0;
   display: inline-block;
   text-align: center;
+
+  img{
+    height: 3vw;
+    width: 3vw;
+  }
 }
 
 .percentage-gender-legend {
@@ -56,10 +61,16 @@ $map-url: url('/src/assets/img/map_bg.svg');
 
 .boy {
   color: #3da6f9;
+  font-size: 1.5vw;
+  font-weight: bolder;
+  letter-spacing: -1px;
 }
 
 .girl {
   color: #ff56c4;
+  font-size: 1.5vw;
+  font-weight: bolder;
+  letter-spacing: -1px;
 }
 
 .title-label {

@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ActionCableService} from '../providers/action-cable.service';
 
 @Component({
   selector: 'app-dashboard-simulation',
@@ -6,27 +7,145 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./dashboard-simulation.component.scss']
 })
 export class DashboardSimulationComponent implements OnInit {
+  liveData;
+  dataEmpty = true;
   stressInnerDoughnut: any;
   stressOuterDoughnut: any;
   engagementInnerDoughnut: any;
   engagementOuterDoughnut: any;
   happinessInnerDoughnut: any;
   happinessOuterDoughnut: any;
-  stressDummyVal = 67;
-  engagementDummyVal = 41;
-  happinessDummyVal = 26;
-  activeUsersDummyVal = 75;
+  // stress
+  stressPercentageAll;
+  stressPercentageFemale;
+  stressPercentageMale;
+  stressValAll;
+  stressValFemale;
+  stressValMale;
+  // engagement
+  engagementPercentageAll;
+  engagementPercentageFemale;
+  engagementPercentageMale;
+  engagementValAll;
+  engagementValFemale;
+  engagementValMale;
+  // happiness
+  happinessPercentageAll;
+  happinessPercentageFemale;
+  happinessPercentageMale;
+  happinessValAll;
+  happinessValFemale;
+  happinessValMale;
+  // active users
+  activeUsersValAll;
+  activeUsersFemale;
+  activeUsersMale;
   isDoughnutsDataLoading: boolean;
+  stressLabel = ['Stressed', 'Not Stressed'];
+  stressBgColor = ['#e53935', '#bdbdbd'];
+  genderLabel = ['Male', 'Female', 'erm'];
+  genderBgColor = ['#36A2EB', '#FF6384', 'transparent'];
+  engagementLabel = ['Engaged', 'Not Engaged'];
+  engagementBgColor = ['#fbc02d', '#bdbdbd'];
+  happinessLabel = ['Happy', 'Not Happy'];
+  happinessBgColor = ['#4caf50', '#bdbdbd'];
 
-  constructor() {
+  constructor(actionCable: ActionCableService) {
     this.isDoughnutsDataLoading = true;
+    actionCable.establishConnection();
+    actionCable.cable.subscriptions.create({
+      channel: 'LiveResultChannel',
+    }, {
+      connected: () => {
+        console.log('Connected to simulation channel');
+      },
+      disconnected: () => {
+        console.log('disconnected from simulation channel');
+      },
+      received: (data) => {
+        console.log('received data');
+        console.log(data);
+        this.liveData = data.payload.total_stressed;
+        if (data) {
+          this.dataEmpty = false;
+          this.activeUsersValAll = data.payload.total_visitor;
+          this.activeUsersFemale = data.payload.percent_visitor_female;
+          this.activeUsersMale = data.payload.percent_visitor_male;
+          this.stressValAll = data.payload.total_stressed;
+          this.stressPercentageAll = data.payload.percent_stressed;
+          this.stressPercentageFemale = data.payload.percent_stressed_female;
+          this.stressPercentageMale = data.payload.percent_stressed_male;
+          this.engagementValAll = data.payload.total_engaged;
+          this.engagementPercentageAll = data.payload.percent_engaged;
+          this.engagementPercentageFemale = data.payload.percent_engaged_female;
+          this.engagementPercentageMale = data.payload.percent_engaged_male;
+          this.happinessValAll = data.payload.total_happy;
+          this.happinessPercentageAll = data.payload.percent_happy;
+          this.happinessPercentageFemale = data.payload.percent_happy_female;
+          this.happinessPercentageMale = data.payload.percent_happy_male;
+
+          this.addChartData(this.stressInnerDoughnut,
+            this.stressLabel,
+            [this.stressPercentageAll, 100 - this.stressPercentageAll],
+            this.stressBgColor,
+            this.stressBgColor);
+          this.addChartData(this.stressOuterDoughnut,
+            this.genderLabel,
+            [(this.stressPercentageMale), (this.stressPercentageFemale), 100 - this.stressPercentageAll],
+            this.genderBgColor,
+            this.genderBgColor);
+          this.addChartData(this.engagementInnerDoughnut,
+            this.stressLabel,
+            [this.stressPercentageAll, 100 - this.stressPercentageAll],
+            this.engagementBgColor,
+            this.engagementBgColor);
+          this.addChartData(this.engagementOuterDoughnut,
+            this.genderLabel,
+            [(this.engagementPercentageMale), (this.engagementPercentageFemale), 100 - this.engagementPercentageAll],
+            this.genderBgColor,
+            this.genderBgColor);
+          this.addChartData(this.happinessInnerDoughnut,
+            this.happinessLabel,
+            [this.happinessPercentageAll, 100 - this.happinessPercentageAll],
+            this.happinessBgColor,
+            this.happinessBgColor);
+          this.addChartData(this.happinessOuterDoughnut,
+            this.genderLabel,
+            [(this.happinessPercentageMale), (this.happinessPercentageFemale), 100 - this.happinessPercentageAll],
+            this.genderBgColor,
+            this.genderBgColor);
+        }
+      }
+    });
+
   }
 
   ngOnInit() {
     this.setupDoughnut();
   }
 
+  addChartData(chart, label, data, bgColor, hoverBgColor) {
+    chart.data.labels.push(label);
+    chart.data.datasets.forEach((dataset) => {
+      dataset.data = data;
+      dataset.backgroundColor = bgColor;
+      dataset.hoverBackgroundColor = hoverBgColor;
+    });
+    chart.update();
+  }
+
+  removeChartData(chart) {
+    chart.data.labels.pop();
+    chart.data.datasets.forEach((dataset) => {
+      dataset.data = [];
+      dataset.backgroundColor = [];
+      dataset.hoverBackgroundColor = [];
+    });
+    chart.update();
+  }
+
   setupDoughnut() {
+    Chart.defaults.global.defaultFontColor = 'transparent';
     Chart.pluginService.register({
       beforeDraw: function (chart) {
         const width = chart.chart.width,
@@ -46,65 +165,65 @@ export class DashboardSimulationComponent implements OnInit {
 
 // chart1
     const stressInitData = {
-      labels: ['Stressed', 'Not Stressed'],
+      labels: this.stressLabel,
       datasets: [
         {
-          data: [this.stressDummyVal, (100 - this.stressDummyVal)],
-          backgroundColor: ['#e53935', '#bdbdbd'],
-          hoverBackgroundColor: ['#e53935', '#bdbdbd']
+          data: [this.stressPercentageAll, 100 - this.stressPercentageAll],
+          backgroundColor: this.stressBgColor,
+          hoverBackgroundColor: this.stressBgColor
         }]
     };
     const stressGenderInitData = {
-      labels: ['Red', 'Blue', 'Undefined'],
+      labels: this.genderLabel,
       datasets: [
         {
-          data: [40, 20, 40],
-          backgroundColor: ['#FF6384', '#36A2EB', 'transparent'],
-          hoverBackgroundColor: ['#FF6384', '#36A2EB', 'transparent']
+          data: [this.stressPercentageFemale, this.stressPercentageMale, 100 - this.stressPercentageFemale - this.stressPercentageMale],
+          backgroundColor: this.genderBgColor,
+          hoverBackgroundColor: this.genderBgColor
         }]
     };
 
     const engagementInitData = {
-      labels: ['Stressed', 'Not Stressed'],
+      labels: this.engagementLabel,
       datasets: [
         {
-          data: [this.engagementDummyVal, 100 - this.engagementDummyVal],
-          backgroundColor: ['#fbc02d', '#bdbdbd'],
-          hoverBackgroundColor: ['#fbc02d', '#bdbdbd']
+          data: [this.engagementPercentageAll, 100 - this.engagementPercentageAll],
+          backgroundColor: this.engagementBgColor,
+          hoverBackgroundColor: this.engagementBgColor
         }]
     };
     const engagementGenderInitData = {
-      labels: ['Red', 'Blue', 'Undefined'],
+      labels: this.genderLabel,
       datasets: [
         {
-          data: [30, 30, 40],
-          backgroundColor: ['#FF6384', '#36A2EB', 'transparent'],
-          hoverBackgroundColor: ['#FF6384', '#36A2EB', 'transparent']
+          data: [this.engagementPercentageFemale, this.engagementPercentageMale, 100 - this.engagementPercentageFemale - this.engagementPercentageMale],
+          backgroundColor: this.genderBgColor,
+          hoverBackgroundColor: this.genderBgColor
         }]
     };
     const happinessInitData = {
-      labels: ['Stressed', 'Not Stressed'],
+      labels: this.happinessLabel,
       datasets: [
         {
-          data: [this.happinessDummyVal, 100 - this.happinessDummyVal],
-          backgroundColor: ['#4caf50', '#bdbdbd'],
-          hoverBackgroundColor: ['#4caf50', '#bdbdbd']
+          data: [this.happinessPercentageAll, 100 - this.happinessPercentageAll],
+          backgroundColor: this.happinessBgColor,
+          hoverBackgroundColor: this.happinessBgColor
         }]
     };
     const happinessGenderInitData = {
-      labels: ['Red', 'Blue', 'Undefined'],
+      labels: this.genderLabel,
       datasets: [
         {
-          data: [20, 20, 80],
-          backgroundColor: ['#FF6384', '#36A2EB', 'transparent'],
-          hoverBackgroundColor: ['#FF6384', '#36A2EB', 'transparent']
+          data: [this.happinessPercentageFemale, this.happinessPercentageMale, 100 - this.happinessPercentageFemale - this.happinessPercentageMale],
+          backgroundColor: this.genderBgColor,
+          hoverBackgroundColor: this.genderBgColor
         }]
     };
     const activeUsersInitData = {
       labels: ['Stressed', 'Not Stressed'],
       datasets: [
         {
-          data: [this.activeUsersDummyVal, 100 - this.activeUsersDummyVal],
+          data: [this.activeUsersValAll, 100 - this.activeUsersValAll],
           backgroundColor: ['#283593', '#bdbdbd'],
           hoverBackgroundColor: ['#283593', '#bdbdbd']
         }]
@@ -124,10 +243,14 @@ export class DashboardSimulationComponent implements OnInit {
       data: stressInitData,
       options: {
         responsive: false,
-        elements: {arc: {borderWidth: 0}},
+        elements: {
+          arc: {
+            borderWidth: 0
+          }
+        },
         cutoutPercentage: 85,
         legend: {
-          display: false
+          display: false,
         }
       }
     });

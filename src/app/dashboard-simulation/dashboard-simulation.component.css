@@ -37,15 +37,24 @@
   padding: 0;
   display: inline-block;
   text-align: center; }
+  .gender-legend img {
+    height: 3vw;
+    width: 3vw; }
 
 .percentage-gender-legend {
   font-size: 3rem; }
 
 .boy {
-  color: #3da6f9; }
+  color: #3da6f9;
+  font-size: 1.5vw;
+  font-weight: bolder;
+  letter-spacing: -1px; }
 
 .girl {
-  color: #ff56c4; }
+  color: #ff56c4;
+  font-size: 1.5vw;
+  font-weight: bolder;
+  letter-spacing: -1px; }
 
 .title-label {
   font-size: 1.2vw;

@@ -2,3 +2,4 @@
 declare var config: any;
 declare var ProgressBar: any;
 declare var Chart: any;
+declare var ActionCable: any;

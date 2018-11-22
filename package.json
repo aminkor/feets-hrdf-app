@@ -24,6 +24,7 @@
     "@angular/router": "^6.1.0",
     "@nebular/theme": "^2.0.1",
     "@ng-bootstrap/ng-bootstrap": "^3.2.2",
+    "actioncable": "^5.2.1",
     "angular-svg-round-progressbar": "^2.0.0",
     "angular-tree-component": "^8.0.0",
     "bootstrap": "^4.1.3",

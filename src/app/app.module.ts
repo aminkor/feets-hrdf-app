@@ -12,6 +12,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
 import { DashboardSimulationComponent } from './dashboard-simulation/dashboard-simulation.component';
 import {HrdfServerProviderService} from './providers/hrdf-server-provider.service';
+import {Data} from './providers/data';
+import {ActionCableService} from './providers/action-cable.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import {HrdfServerProviderService} from './providers/hrdf-server-provider.servic
     routing
   ],
   providers: [
-    HrdfServerProviderService
+    HrdfServerProviderService,
+    Data,
+    ActionCableService
   ],
   bootstrap: [AppComponent]
 })

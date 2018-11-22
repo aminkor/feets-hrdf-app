@@ -2,7 +2,7 @@ export class UserForm {
 
   constructor(
     public title: string,
-    public answer: any[],
+    public answers: any[],
     public firstname: string,
     public lastname: string,
     public email: any,

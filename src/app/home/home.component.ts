@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NavigationExtras, Router} from '@angular/router';
 import {MatIconRegistry} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
-import { Data } from '../providers/data';
+import {Data} from '../providers/data';
 
 
 @Component({
@@ -75,8 +75,8 @@ export class HomeComponent implements OnInit {
     // this.router.navigate(['Form'], navigationExtras);
     this.data.storage = {
       'results': this.questionsArray
-  }
-  this.router.navigate(['Form']);
+    };
+    this.router.navigate(['Form']);
     console.log('Results = ');
     console.log(this.questionsArray);
   }
