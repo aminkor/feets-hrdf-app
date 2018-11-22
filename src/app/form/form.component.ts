@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {UserForm} from '../_models/UserForm';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HrdfServerProviderService} from '../providers/hrdf-server-provider.service';
+import { Data } from '../providers/data';
 
 @Component({
   selector: 'app-form',
@@ -13,13 +14,15 @@ export class FormComponent implements OnInit {
 
   constructor(private router: Router,
               private hrdfserver: HrdfServerProviderService,
-              private route: ActivatedRoute) {
-    this.route.queryParams.subscribe(params => {
-      this.answers = params['results'];
-      for (let i = 0; i < this.answers.length; i++){
-        console.log(this.answers[i]);
-      }
-    });
+              private route: ActivatedRoute,
+              private data: Data) {
+    // this.route.queryParams.subscribe(params => {
+    //   this.answers = params['results'];
+    //   for (let i = 0; i < this.answers.length; i++){
+    //     console.log(this.answers[i]);
+    //   }
+    // });
+    console.log(this.data.storage);
   }
 
   titles = ['Mr', 'Mrs', 'Ms'];

@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {NavigationExtras, Router} from '@angular/router';
 import {MatIconRegistry} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
+import { Data } from '../providers/data';
+
 
 @Component({
   selector: 'app-home',
@@ -38,7 +40,7 @@ export class HomeComponent implements OnInit {
     {questionNum: 7, question: 'I would recommend my company as a great place to work at', type: 'fiveDots'},
   ];
 
-  constructor(private router: Router, private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
+  constructor(private router: Router, private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private data: Data) {
     this.isQuestion = false;
     this.isEmoji = false;
     this.is4Dots = false;
@@ -65,12 +67,16 @@ export class HomeComponent implements OnInit {
   }
 
   goForm() {
-    const navigationExtras: NavigationExtras = {
-      queryParams: {
-        'results': this.questionsArray
-      }
-    };
-    this.router.navigate(['Form'], navigationExtras);
+    // const navigationExtras: NavigationExtras = {
+    //   queryParams: {
+    //     'results': this.questionsArray
+    //   }
+    // };
+    // this.router.navigate(['Form'], navigationExtras);
+    this.data.storage = {
+      'results': this.questionsArray
+  }
+  this.router.navigate(['Form']);
     console.log('Results = ');
     console.log(this.questionsArray);
   }
