@@ -42,7 +42,8 @@
                 <div *ngIf="dataEmpty">
                   --
                 </div>
-                <div class="number-percentange" style="color: #e53935; margin: 0.2vw 0;">{{stressPercentageAll}}%</div>
+                <div *ngIf="!dataEmpty" class="number-percentange" style="color: #e53935; margin: 0.2vw 0;">{{stressPercentageAll}}%</div>
+                <div *ngIf="dataEmpty" class="number-percentange" style="color: #e53935; margin: 0.2vw 0;">--</div>
                 <div>stressed</div>
               </div>
             </div>
@@ -57,10 +58,14 @@
           <div class="wording-chart-container">
             <div class="wording-chart-container2">
               <div>
-                <div>
+                <div *ngIf="!dataEmpty">
                   {{engagementValAll}}/{{activeUsersValAll}}
                 </div>
-                <div class="number-percentange" style="color: #fbc02d; margin: 0.2vw 0;">{{engagementPercentageAll}}%</div>
+                <div *ngIf="dataEmpty">
+                  --
+                </div>
+                <div *ngIf="!dataEmpty" class="number-percentange" style="color: #fbc02d; margin: 0.2vw 0;">{{engagementPercentageAll}}%</div>
+                <div *ngIf="dataEmpty" class="number-percentange" style="color: #fbc02d; margin: 0.2vw 0;">--</div>
                 <div>engaged</div>
               </div>
             </div>
@@ -75,10 +80,14 @@
           <div class="wording-chart-container">
             <div class="wording-chart-container2">
               <div>
-                <div>
+                <div *ngIf="!dataEmpty">
                   {{happinessValAll}}/{{activeUsersValAll}}
                 </div>
-                <div class="number-percentange" style="color: #4caf50; margin: 0.2vw 0;">{{happinessPercentageAll}}%</div>
+                <div *ngIf="dataEmpty">
+                  --
+                </div>
+                <div *ngIf="!dataEmpty" class="number-percentange" style="color: #4caf50; margin: 0.2vw 0;">{{happinessPercentageAll}}%</div>
+                <div *ngIf="dataEmpty" class="number-percentange" style="color: #4caf50; margin: 0.2vw 0;">--</div>
                 <div>happy</div>
               </div>
             </div>
@@ -126,35 +135,59 @@
       </div>
       <div class="row">
         <div class="col-3">
-          <div class="col-5 gender-legend percentage-gender-legend boy">
+          <div *ngIf="!dataEmpty" class="col-5 gender-legend percentage-gender-legend boy">
             {{activeUsersMale}}%
           </div>
-          <div class="col-5 gender-legend percentage-gender-legend girl">
+          <div *ngIf="dataEmpty" class="col-5 gender-legend percentage-gender-legend boy">
+            --
+          </div>
+          <div *ngIf="!dataEmpty" class="col-5 gender-legend percentage-gender-legend girl">
             {{activeUsersFemale}}%
           </div>
+          <div *ngIf="dataEmpty" class="col-5 gender-legend percentage-gender-legend girl">
+            --
+          </div>
         </div>
         <div class="col-3">
-          <div class="col-5 gender-legend percentage-gender-legend boy">
+          <div *ngIf="!dataEmpty" class="col-5 gender-legend percentage-gender-legend boy">
             {{stressPercentageMale}}%
           </div>
-          <div class="col-5 gender-legend percentage-gender-legend girl">
+          <div *ngIf="dataEmpty" class="col-5 gender-legend percentage-gender-legend boy">
+            --
+          </div>
+          <div *ngIf="!dataEmpty" class="col-5 gender-legend percentage-gender-legend girl">
             {{stressPercentageFemale}}%
           </div>
+          <div *ngIf="dataEmpty" class="col-5 gender-legend percentage-gender-legend girl">
+            --
+          </div>
         </div>
         <div class="col-3">
-          <div class="col-5 gender-legend percentage-gender-legend boy">
+          <div *ngIf="!dataEmpty" class="col-5 gender-legend percentage-gender-legend boy">
             {{engagementPercentageMale}}%
           </div>
-          <div class="col-5 gender-legend percentage-gender-legend girl">
+          <div *ngIf="dataEmpty" class="col-5 gender-legend percentage-gender-legend boy">
+            --
+          </div>
+          <div *ngIf="!dataEmpty" class="col-5 gender-legend percentage-gender-legend girl">
             {{engagementPercentageFemale}}%
+          </div>
+          <div *ngIf="dataEmpty" class="col-5 gender-legend percentage-gender-legend girl">
+            --
           </div>
         </div>
         <div class="col-3">
-          <div class="col-5 gender-legend percentage-gender-legend boy">
+          <div *ngIf="!dataEmpty" class="col-5 gender-legend percentage-gender-legend boy">
             {{happinessPercentageMale}}%
           </div>
-          <div class="col-5 gender-legend percentage-gender-legend girl">
+          <div *ngIf="dataEmpty" class="col-5 gender-legend percentage-gender-legend boy">
+            --
+          </div>
+          <div *ngIf="!dataEmpty" class="col-5 gender-legend percentage-gender-legend girl">
             {{happinessPercentageFemale}}%
+          </div>
+          <div *ngIf="dataEmpty" class="col-5 gender-legend percentage-gender-legend girl">
+            --
           </div>
         </div>
       </div>
