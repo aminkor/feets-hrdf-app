@@ -16,6 +16,7 @@ export class FormComponent implements OnInit {
   private answers;
   titles = ['Mr', 'Mrs', 'Ms'];
   model = new UserForm('', this.answers, '', '', '', '', '', false, '', '');
+
   constructor(private router: Router,
               private hrdfserver: HrdfServerProviderService,
               private route: ActivatedRoute,
@@ -38,13 +39,15 @@ export class FormComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
-          this.alert();
-          setTimeout(() => {
-            this.goHome();
-          }, 500);
         },
         error => {
           console.log(error);
+        },
+        () => {
+          this.alert(this.model.email);
+          setTimeout(() => {
+            this.goHome();
+          }, 500);
         });
   }
 
@@ -66,14 +69,18 @@ export class FormComponent implements OnInit {
     // console.log(this.model);
   }
 
-  alert() {
-    const dialogRef = this.dialog.open(MyAlertDialogComponent);
+  alert(data) {
+    const dialogRef = this.dialog.open(MyAlertDialogComponent, {
+      data: {
+        email: data
+      }
+    });
     dialogRef.afterClosed().subscribe(result => {
       // NOTE: The result can also be nothing if the user presses the `esc` key or clicks outside the dialog
-      if (result == 'confirm') {
-        console.log('Unregistered');
+      if (result === 'confirm') {
+        console.log('successful');
       }
-    })
+    });
   }
 
 }
