@@ -26,10 +26,10 @@
         </div>
       </div>
       <div class="row" style="padding: 1vw; text-align: -webkit-center;">
-        <div *ngIf="!dataEmpty" class="col-3 booth-visitor-number">
+        <div #animateNumber *ngIf="!dataEmpty" class="col-3 booth-visitor-number">
           {{activeUsersValAll}}
         </div>
-        <div *ngIf="dataEmpty" class="col-3 booth-visitor-number">
+        <div #animateNumber *ngIf="dataEmpty" class="col-3 booth-visitor-number">
           --
         </div>
         <div class="col-3">
@@ -150,13 +150,13 @@
         </div>
         <div class="col-3">
           <div *ngIf="!dataEmpty" class="col-5 gender-legend percentage-gender-legend boy">
-            {{stressPercentageMale}}%
+            {{stressMaleLegend}}%
           </div>
           <div *ngIf="dataEmpty" class="col-5 gender-legend percentage-gender-legend boy">
             --
           </div>
           <div *ngIf="!dataEmpty" class="col-5 gender-legend percentage-gender-legend girl">
-            {{stressPercentageFemale}}%
+            {{stressFemaleLegend}}%
           </div>
           <div *ngIf="dataEmpty" class="col-5 gender-legend percentage-gender-legend girl">
             --
@@ -164,13 +164,13 @@
         </div>
         <div class="col-3">
           <div *ngIf="!dataEmpty" class="col-5 gender-legend percentage-gender-legend boy">
-            {{engagementPercentageMale}}%
+            {{engagedMaleLegend}}%
           </div>
           <div *ngIf="dataEmpty" class="col-5 gender-legend percentage-gender-legend boy">
             --
           </div>
           <div *ngIf="!dataEmpty" class="col-5 gender-legend percentage-gender-legend girl">
-            {{engagementPercentageFemale}}%
+            {{engagedFemaleLegend}}%
           </div>
           <div *ngIf="dataEmpty" class="col-5 gender-legend percentage-gender-legend girl">
             --
@@ -178,13 +178,13 @@
         </div>
         <div class="col-3">
           <div *ngIf="!dataEmpty" class="col-5 gender-legend percentage-gender-legend boy">
-            {{happinessPercentageMale}}%
+            {{happinessMaleLegend}}%
           </div>
           <div *ngIf="dataEmpty" class="col-5 gender-legend percentage-gender-legend boy">
             --
           </div>
           <div *ngIf="!dataEmpty" class="col-5 gender-legend percentage-gender-legend girl">
-            {{happinessPercentageFemale}}%
+            {{happinessFemaleLegend}}%
           </div>
           <div *ngIf="dataEmpty" class="col-5 gender-legend percentage-gender-legend girl">
             --

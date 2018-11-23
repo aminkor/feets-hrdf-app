@@ -25,8 +25,7 @@
 
     <footer>
       <div style="text-align: center">
-        <!--<button mat-flat-button (click)="goForm()" class="start-back-btn">Start!</button>-->
-        <button mat-flat-button (click)="toggleIsQuestion()" class="start-back-btn">Start!</button>
+        <button (click)="toggleIsQuestion()" class="start-back-btn" style="padding: 2% 15%;">Start!</button>
       </div>
     </footer>
   </div>
@@ -51,12 +50,11 @@
     </div>
 
     <mat-card class="whiteBg">
-      <mat-card-content>
         <div  id="Question" class="question-text">{{currentQuestion.question}}</div>
         <!--<p>{{currentQuestion | json}}</p>-->
 
         <div id="emoji" class="container" *ngIf="isEmoji || currentQuestion.type === 'emoji'">
-          <div class="row" style="line-height: 50px; height: 50px;">
+          <div class="row" style="line-height: 15vw; height: 15vw;">
             <div class="col-2" (click)="selectAnswer(1)">
             <span *ngIf="!isSelected1" class="icon-GE01"><span class="path1"></span><span class="path2"></span><span
               class="path3"></span><span class="path4"></span><span class="path5"></span><span
@@ -103,92 +101,74 @@
         <!--   -------------------------- 5 dots --------------------------   -->
         <div id="dots-5" class="container container-padding" *ngIf="is5Dots || currentQuestion.type === 'fiveDots'">
           <div class="row" style="height: 20vw; line-height: 20vw;">
-            <div class="col-2 col-padding" (click)="selectAnswer(1)">
-              <div *ngIf="!isSelected1" class="icon-Unselected-red large-scale"></div>
+
+            <div class="col-xs-12">
+              <div (click)="selectAnswer(1)" *ngIf="!isSelected1" class="icon-Unselected-red large-scale"></div>
               <div *ngIf="isSelected1" class="icon-selected-red large-scale"></div>
-            </div>
-            <div class="col-2 col-half-offset" (click)="selectAnswer(2)">
-              <div *ngIf="!isSelected2" class="icon-Unselected-red medium-scale"></div>
+
+
+              <div (click)="selectAnswer(2)" *ngIf="!isSelected2" class="icon-Unselected-red medium-scale"></div>
               <div *ngIf="isSelected2" class="icon-selected-red medium-scale"></div>
-            </div>
-            <div class="col-2 col-half-offset" (click)="selectAnswer(3)">
-              <div *ngIf="!isSelected3" class="icon-Unselected-gray small-scale"></div>
+
+
+              <div (click)="selectAnswer(3)" *ngIf="!isSelected3" class="icon-Unselected-gray small-scale"></div>
               <div *ngIf="isSelected3" class="icon-selected-gray small-scale"></div>
-            </div>
-            <div class="col-2 col-half-offset" (click)="selectAnswer(4)">
-              <div *ngIf="!isSelected4" class="icon-Unselected-green medium-scale"></div>
+
+
+              <div (click)="selectAnswer(4)" *ngIf="!isSelected4" class="icon-Unselected-green medium-scale"></div>
               <div *ngIf="isSelected4" class="icon-selected-green medium-scale"></div>
-            </div>
-            <div class="col-2 col-half-offset" (click)="selectAnswer(5)">
-              <div *ngIf="!isSelected5" class="icon-Unselected-green large-scale"></div>
+
+
+              <div (click)="selectAnswer(5)" *ngIf="!isSelected5" class="icon-Unselected-green large-scale"></div>
               <div *ngIf="isSelected5" class="icon-selected-green large-scale"></div>
             </div>
           </div>
-          <div class="row text" style="font-size: 3vw; color: #7A7A7A;">
-            <div class="col-2 col-padding" (click)="selectAnswer(1)">
-              Disagree
-            </div>
-            <div class="col-2 col-half-offset" (click)="selectAnswer(2)">
-
-            </div>
-            <div class="col-2 col-half-offset" (click)="selectAnswer(3)">
-
-            </div>
-            <div class="col-2 col-half-offset" (click)="selectAnswer(4)">
-
-            </div>
-            <div class="col-2 col-half-offset" style="text-align: right;" (click)="selectAnswer(5)">
-              Agree
+          <div class="row" style="font-size: 3vw;">
+            <div class="col-xs-12">
+              <span class="col-xs-6" style="text-align: left;">Disagree</span>
+              <span class="col-xs-6" style="text-align: right;">Agree</span>
             </div>
           </div>
+
         </div>
 
         <!--   -------------------------- 4 dots --------------------------   -->
-        <div id="dots-4" class="container container-padding" *ngIf="is4Dots|| currentQuestion.type === 'fourDots'">
-          <div class="row" style="height: 20vw; line-height: 20vw;">
-            <div class="col-auto" (click)="selectAnswer(1)">
-              <div *ngIf="!isSelected1" class="icon-Unselected-red large-scale"></div>
-              <div *ngIf="isSelected1" class="icon-selected-red large-scale"></div>
-            </div>
-            <div class="col-3" (click)="selectAnswer(2)">
-              <div *ngIf="!isSelected2" class="icon-Unselected-red medium-scale"></div>
-              <div *ngIf="isSelected2" class="icon-selected-red medium-scale"></div>
-            </div>
-            <div class="col-3" (click)="selectAnswer(3)">
-              <div *ngIf="!isSelected3" class="icon-Unselected-green medium-scale"></div>
-              <div *ngIf="isSelected3" class="icon-selected-green medium-scale"></div>
-            </div>
-            <div class="col-auto" (click)="selectAnswer(4)">
-              <div *ngIf="!isSelected4" class="icon-Unselected-green large-scale"></div>
-              <div *ngIf="isSelected4" class="icon-selected-green large-scale"></div>
-            </div>
-          </div>
-          <div class="row text" style="font-size: 3vw; color:#7A7A7A;">
-            <div class="col-auto" (click)="selectAnswer(1)">
-              Disagree
-            </div>
-            <div class="col-3" (click)="selectAnswer(2)">
-
-            </div>
-            <div class="col-3" (click)="selectAnswer(3)">
-
-            </div>
-            <div class="col-auto" style="text-align: right" (click)="selectAnswer(4)">
-              Agree
-            </div>
-          </div>
-        </div>
-
+        <!--<div id="dots-4" class="container container-padding" *ngIf="is4Dots|| currentQuestion.type === 'fourDots'">-->
+          <!--<div class="row" style="height: 20vw; line-height: 20vw;">-->
+            <!--<div class="col-auto" (click)="selectAnswer(1)">-->
+              <!--<div *ngIf="!isSelected1" class="icon-Unselected-red large-scale"></div>-->
+              <!--<div *ngIf="isSelected1" class="icon-selected-red large-scale"></div>-->
+            <!--</div>-->
+            <!--<div class="col-3" (click)="selectAnswer(2)">-->
+              <!--<div *ngIf="!isSelected2" class="icon-Unselected-red medium-scale"></div>-->
+              <!--<div *ngIf="isSelected2" class="icon-selected-red medium-scale"></div>-->
+            <!--</div>-->
+            <!--<div class="col-3" (click)="selectAnswer(3)">-->
+              <!--<div *ngIf="!isSelected3" class="icon-Unselected-green medium-scale"></div>-->
+              <!--<div *ngIf="isSelected3" class="icon-selected-green medium-scale"></div>-->
+            <!--</div>-->
+            <!--<div class="col-auto" (click)="selectAnswer(4)">-->
+              <!--<div *ngIf="!isSelected4" class="icon-Unselected-green large-scale"></div>-->
+              <!--<div *ngIf="isSelected4" class="icon-selected-green large-scale"></div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="row text" style="font-size: 3vw; color:#7A7A7A;">-->
+            <!--<div class="col-auto" style="text-align: left">-->
+              <!--Disagree-->
+            <!--</div>-->
+            <!--<div class="col-3"></div>-->
+            <!--<div class="col-3"></div>-->
+            <!--<div class="col-auto" style="text-align: right">-->
+              <!--Agree-->
+            <!--</div>-->
+          <!--</div>-->
         <!--</div>-->
-
-        <mat-card-footer>
-          <button *ngIf="hasAnswered && !isLastQuestion" mat-flat-button class="start-back-btn" (click)="nextQuestion()">Next</button>
+        <div style="text-align: -webkit-center; margin: 5vw;">
+          <button *ngIf="hasAnswered && !isLastQuestion" class="start-back-btn" (click)="nextQuestion()">Next</button>
           <button *ngIf="!hasAnswered && !isLastQuestion" [disabled]=true class="start-back-btn-disable">Next</button>
-          <button *ngIf="hasAnswered && isLastQuestion" mat-flat-button class="start-back-btn" (click)="goForm()">Finish</button>
+          <button *ngIf="hasAnswered && isLastQuestion" class="start-back-btn" (click)="goForm()">Finish</button>
           <button *ngIf="!hasAnswered && isLastQuestion" [disabled]=true class="start-back-btn-disable">Finish</button>
-        </mat-card-footer>
-      </mat-card-content>
-
+        </div>
     </mat-card>
   </div>
 

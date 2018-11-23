@@ -3,6 +3,8 @@ import {UserForm} from '../_models/UserForm';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HrdfServerProviderService} from '../providers/hrdf-server-provider.service';
 import {Data} from '../providers/data';
+import {MatDialog} from '@angular/material';
+import {MyAlertDialogComponent} from '../my-alert-dialog/my-alert-dialog.component';
 
 @Component({
   selector: 'app-form',
@@ -10,14 +12,15 @@ import {Data} from '../providers/data';
   styleUrls: ['./form.component.scss', '../../assets/forms.scss']
 })
 export class FormComponent implements OnInit {
+  submitted = false;
   private answers;
   titles = ['Mr', 'Mrs', 'Ms'];
-  submitted = false;
-  model = new UserForm('', this.answers, '', '', '', '', '', false, '+601', '');
+  model = new UserForm('', this.answers, '', '', '', '', '', false, '', '');
   constructor(private router: Router,
               private hrdfserver: HrdfServerProviderService,
               private route: ActivatedRoute,
-              private data: Data) {
+              private data: Data,
+              private dialog: MatDialog) {
 
     console.log(this.data.storage);
     this.answers = this.data.storage.results;
@@ -25,8 +28,7 @@ export class FormComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.submitted = true;
-    // this.goDashboard();
+    this.submitted = true;
     console.log('answers = ');
     console.log(this.answers);
     console.log('model = ');
@@ -36,6 +38,10 @@ export class FormComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
+          this.alert();
+          setTimeout(() => {
+            this.goHome();
+          }, 500);
         },
         error => {
           console.log(error);
@@ -48,6 +54,7 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   goHome() {
@@ -57,6 +64,16 @@ export class FormComponent implements OnInit {
   goDashboard() {
     this.router.navigate(['Dashboard']);
     // console.log(this.model);
+  }
+
+  alert() {
+    const dialogRef = this.dialog.open(MyAlertDialogComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      // NOTE: The result can also be nothing if the user presses the `esc` key or clicks outside the dialog
+      if (result == 'confirm') {
+        console.log('Unregistered');
+      }
+    })
   }
 
 }

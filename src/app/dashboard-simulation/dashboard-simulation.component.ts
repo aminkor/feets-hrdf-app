@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Renderer, ViewChild} from '@angular/core';
 import {ActionCableService} from '../providers/action-cable.service';
+import {state, style, transition, trigger, animate, keyframes} from '@angular/animations';
 
 @Component({
   selector: 'app-dashboard-simulation',
@@ -7,6 +8,7 @@ import {ActionCableService} from '../providers/action-cable.service';
   styleUrls: ['./dashboard-simulation.component.scss']
 })
 export class DashboardSimulationComponent implements OnInit {
+  @ViewChild('animateNumber') animateNumber;
   liveData;
   dataEmpty = true;
   stressInnerDoughnut: any;
@@ -49,8 +51,15 @@ export class DashboardSimulationComponent implements OnInit {
   engagementBgColor = ['#fbc02d', '#bdbdbd'];
   happinessLabel = ['Happy', 'Not Happy'];
   happinessBgColor = ['#4caf50', '#bdbdbd'];
+  stressFemaleLegend;
+  stressMaleLegend;
+  engagedFemaleLegend;
+  engagedMaleLegend;
+  happinessFemaleLegend;
+  happinessMaleLegend;
 
-  constructor(actionCable: ActionCableService) {
+  constructor(actionCable: ActionCableService,
+              public renderer: Renderer) {
     this.isDoughnutsDataLoading = true;
     actionCable.establishConnection();
     actionCable.cable.subscriptions.create({
@@ -65,24 +74,31 @@ export class DashboardSimulationComponent implements OnInit {
       received: (data) => {
         console.log('received data');
         console.log(data);
-        this.liveData = data.payload.total_stressed;
+        this.liveData = data.payload;
         if (data) {
           this.dataEmpty = false;
-          this.activeUsersValAll = data.payload.total_visitor;
-          this.activeUsersFemale = data.payload.percent_visitor_female;
-          this.activeUsersMale = data.payload.percent_visitor_male;
-          this.stressValAll = data.payload.total_stressed;
-          this.stressPercentageAll = data.payload.percent_stressed;
-          this.stressPercentageFemale = data.payload.percent_stressed_female;
-          this.stressPercentageMale = data.payload.percent_stressed_male;
-          this.engagementValAll = data.payload.total_engaged;
-          this.engagementPercentageAll = data.payload.percent_engaged;
-          this.engagementPercentageFemale = data.payload.percent_engaged_female;
-          this.engagementPercentageMale = data.payload.percent_engaged_male;
-          this.happinessValAll = data.payload.total_happy;
-          this.happinessPercentageAll = data.payload.percent_happy;
-          this.happinessPercentageFemale = data.payload.percent_happy_female;
-          this.happinessPercentageMale = data.payload.percent_happy_male;
+          this.animate();
+          this.activeUsersValAll = this.liveData.total_visitor;
+          this.activeUsersFemale = this.liveData.percent_visitor_female;
+          this.activeUsersMale = this.liveData.percent_visitor_male;
+          this.stressValAll = this.liveData.total_stressed;
+          this.stressPercentageAll = this.liveData.percent_stressed;
+          this.stressPercentageFemale = this.liveData.percent_stressed_female;
+          this.stressPercentageMale = this.liveData.percent_stressed_male;
+          this.engagementValAll = this.liveData.total_engaged;
+          this.engagementPercentageAll = this.liveData.percent_engaged;
+          this.engagementPercentageFemale = this.liveData.percent_engaged_female;
+          this.engagementPercentageMale = this.liveData.percent_engaged_male;
+          this.happinessValAll = this.liveData.total_happy;
+          this.happinessPercentageAll = this.liveData.percent_happy;
+          this.happinessPercentageFemale = this.liveData.percent_happy_female;
+          this.happinessPercentageMale = this.liveData.percent_happy_male;
+          this.stressFemaleLegend = this.liveData.percent_stressed_female_legend;
+          this.stressMaleLegend = this.liveData.percent_stressed_male_legend;
+          this.engagedFemaleLegend = this.liveData.percent_engaged_female_legend;
+          this.engagedMaleLegend = this.liveData.percent_engaged_male_legend;
+          this.happinessFemaleLegend = this.liveData.percent_happy_female_legend;
+          this.happinessMaleLegend = this.liveData.percent_happy_male_legend;
 
           this.addChartData(this.stressInnerDoughnut,
             this.stressLabel,
@@ -95,8 +111,8 @@ export class DashboardSimulationComponent implements OnInit {
             this.genderBgColor,
             this.genderBgColor);
           this.addChartData(this.engagementInnerDoughnut,
-            this.stressLabel,
-            [this.stressPercentageAll, 100 - this.stressPercentageAll],
+            this.engagementLabel,
+            [this.engagementPercentageAll, 100 - this.engagementPercentageAll],
             this.engagementBgColor,
             this.engagementBgColor);
           this.addChartData(this.engagementOuterDoughnut,
@@ -142,6 +158,15 @@ export class DashboardSimulationComponent implements OnInit {
       dataset.hoverBackgroundColor = [];
     });
     chart.update();
+  }
+
+  animate() {
+    // console.log('should animate');
+    this.renderer.setElementStyle(this.animateNumber.nativeElement, 'transform', 'scale3d(1.2, 1.2, 1.2)');
+
+    setTimeout(() => {
+      this.renderer.setElementStyle(this.animateNumber.nativeElement, 'transform', 'scale3d(1, 1, 1)');
+    }, 200);
   }
 
   setupDoughnut() {

@@ -1,7 +1,7 @@
 .HRDF-first-page {
   color: #444444;
   font-family: calibri;
-  font-size: 4em;
+  font-size: 8vw;
   line-height: 1.3em;
   height: 50vh;
   padding-left: 15vw;
@@ -34,30 +34,30 @@
   padding-left: 0px !important; }
 
 .question-text {
-  font-size: 9vw;
+  font-size: 7vw;
   word-break: break-word;
   font-family: calibri;
   margin-top: 5vw !important;
-  max-height: 30vh;
-  overflow-y: scroll; }
+  overflow-y: visible; }
 
 .start-back-btn {
-  margin: auto;
+  margin: 3vw;
   background-image: linear-gradient(to right, #F1CC20, #FFE25B);
   border: transparent;
   border-radius: 10em;
   font-size: 5vw;
-  padding: 2.4vw 20vw;
-  font-weight: bolder; }
+  font-weight: bolder;
+  color: #FFF;
+  padding: 5% 20%; }
 
 .start-back-btn-disable {
-  margin: auto;
+  margin: 3vw;
   background-image: linear-gradient(to right, #979797, #d1d1d1);
   border: transparent;
   border-radius: 10em;
   font-size: 5vw;
-  padding: 4vw 20vw;
-  font-weight: bolder; }
+  font-weight: bolder;
+  padding: 5% 20%; }
 
 .mat-flat-button.mat-primary {
   background-color: transparent; }
@@ -65,10 +65,7 @@
 #emoji {
   text-align: center;
   font-size: 11vw;
-  min-height: 11vw;
-  margin: auto !important;
-  display: block;
-  position: relative; }
+  margin: auto !important; }
 
 #dots-5 {
   text-align: center;
@@ -77,6 +74,8 @@
   #dots-5 .text .col-2 {
     padding-left: 0px !important;
     padding-right: 0px !important; }
+  #dots-5 .col-xs-12 div, #dots-5 .col-sm-6 div {
+    padding: 0 2vw; }
 
 #dots-4 {
   text-align: center;
@@ -122,19 +121,6 @@
   display: flex;
   flex-direction: row;
   flex-shrink: 0; }
-
-.mat-card-content {
-  flex-grow: 1;
-  overflow: auto;
-  outline: 1px solid red;
-  position: relative;
-  display: contents; }
-
-.mat-card-footer {
-  display: block;
-  margin: auto !important;
-  text-align: -webkit-center;
-  top: 11vw; }
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */

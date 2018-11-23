@@ -8,7 +8,7 @@ export class UserForm {
     public email: any,
     public company: string,
     public position: string,
-    public check_box: boolean,
+    public check_box?: boolean,
     public countryCode?: string,
     public phone?: string,
   ) {  }

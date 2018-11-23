@@ -1,7 +1,7 @@
 .HRDF-first-page {
   color: #444444;
   font-family: calibri;
-  font-size: 4em;
+  font-size: 8vw;
   line-height: 1.3em;
   height: 50vh;
   padding-left: 15vw;
@@ -30,6 +30,7 @@
   margin: 8vw;
   padding: 8vw;
   border-radius: 0.8em;
+  //height: -webkit-fill-available;
   height: 90vh;
 }
 
@@ -43,32 +44,33 @@
 }
 
 .question-text {
-  font-size: 9vw;
+  font-size: 7vw;
   word-break: break-word;
   font-family: calibri;
   margin-top: 5vw !important;
-  max-height: 30vh;
-  overflow-y: scroll;
+  overflow-y: visible;
 }
 
 .start-back-btn {
-  margin: auto;
+  margin: 3vw;
   background-image: linear-gradient(to right, #F1CC20, #FFE25B);
   border: transparent;
   border-radius: 10em;
   font-size: 5vw;
-  padding: 2.4vw 20vw;
   font-weight: bolder;
+  color: #FFF;
+  padding: 5% 20%;
 }
 
 .start-back-btn-disable {
-  margin: auto;
+  margin: 3vw;
   background-image: linear-gradient(to right, #979797, #d1d1d1);
   border: transparent;
   border-radius: 10em;
   font-size: 5vw;
-  padding: 4vw 20vw;
+  //padding: 4vw 20vw;
   font-weight: bolder;
+  padding: 5% 20%;
 }
 
 .mat-flat-button.mat-primary {
@@ -78,10 +80,10 @@
 #emoji {
   text-align: center;
   font-size: 11vw;
-  min-height: 11vw;
+  //min-height: 11vw;
   margin: auto !important;
-  display: block;
-  position: relative;
+  //display: block;
+  //position: relative;
   //margin: 20vw 0;
 }
 
@@ -97,6 +99,12 @@
       padding-right: 0px !important;
     }
   }
+
+.col-xs-12, .col-sm-6{
+  div{
+    padding: 0 2vw;
+  }
+}
 }
 
 #dots-4 {
@@ -162,18 +170,18 @@
 }
 
 .mat-card-content {
-  flex-grow: 1;
-  overflow: auto;
-  outline: 1px solid red;
-  position: relative;
-  display: contents;
+  //flex-grow: 1;
+  //overflow-y: hidden;
+  //outline: 1px solid red;
+  //position: relative;
+  //display: contents;
 }
 
 .mat-card-footer {
-  display: block;
-  margin: auto !important;
-  text-align: -webkit-center;
-  top: 11vw;
+  //display: block;
+  //margin: auto !important;
+  //text-align: -webkit-center;
+  //top: 11vw;
 }
 
 [class^="icon-"], [class*=" icon-"] {
