@@ -13,6 +13,7 @@ import {MyAlertDialogComponent} from '../my-alert-dialog/my-alert-dialog.compone
 })
 export class FormComponent implements OnInit {
   submitted = false;
+  isLoading = false;
   private answers;
   titles = ['Mr', 'Mrs', 'Ms'];
   model = new UserForm('', this.answers, '', '', '', '', '', false, '', '');
@@ -30,6 +31,7 @@ export class FormComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+    this.isLoading = true;
     console.log('answers = ');
     console.log(this.answers);
     console.log('model = ');
@@ -45,9 +47,10 @@ export class FormComponent implements OnInit {
         },
         () => {
           this.alert(this.model.email);
-          setTimeout(() => {
+          // setTimeout(() => {
+          this.isLoading = false;
             this.goHome();
-          }, 500);
+          // }, 100);
         });
   }
 
