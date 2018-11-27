@@ -50,7 +50,7 @@
             </div>
           </div>
           <div class="col-5 col-half-offset-on nopadding">
-            <input type="text" class="form-control" id="lastName" pattern="^[a-zA-Z][a-zA-Z-_\.\s]{1,20}$   "
+            <input type="text" class="form-control" id="lastName" pattern="^[a-zA-Z][a-zA-Z-_\.\s]{1,20}$"
                    required placeholder="Last Name"
                    [(ngModel)]="model.lastname" name="lastName" #lastName="ngModel">
             <div [hidden]="lastName.valid || lastName.pristine"
