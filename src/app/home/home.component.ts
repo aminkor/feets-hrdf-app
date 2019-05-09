@@ -33,13 +33,13 @@ export class HomeComponent implements OnInit {
   questionsArray = [
     {questionNum: 1, question: 'In general, how satisfied are you with your life?', type: 'emoji'},
     {questionNum: 2, question: 'My job often interferes with my family or personal needs.', type: 'fiveDots'},
-    {questionNum: 3, question: 'With eyes closed, I can tell what my organization\'s vision & mission are about.', type: 'fiveDots'},
-    {questionNum: 4, question: 'I can\'t honestly say what I really think or get things off my chest at work.', type: 'fiveDots'},
-    {questionNum: 5, question: 'Where I work, I could usually do a much better job if I was given more time', type: 'fiveDots'},
-    {questionNum: 6, question: 'If you were given the chance, would you reapply to your current job?', type: 'emoji'},
-    {questionNum: 7, question: 'I would recommend my company as a great place to work at', type: 'fiveDots'},
-    {questionNum: 8, question: 'I\'m proud to work for my company.', type: 'fiveDots'},
-    {questionNum: 9, question: 'Where I work, I feel encouraged to come up with new and better ways of doing things.', type: 'fiveDots'},
+    // {questionNum: 3, question: 'With eyes closed, I can tell what my organization\'s vision & mission are about.', type: 'fiveDots'},
+    // {questionNum: 4, question: 'I can\'t honestly say what I really think or get things off my chest at work.', type: 'fiveDots'},
+    // {questionNum: 5, question: 'Where I work, I could usually do a much better job if I was given more time', type: 'fiveDots'},
+    // {questionNum: 6, question: 'If you were given the chance, would you reapply to your current job?', type: 'emoji'},
+    // {questionNum: 7, question: 'I would recommend my company as a great place to work at', type: 'fiveDots'},
+    // {questionNum: 8, question: 'I\'m proud to work for my company.', type: 'fiveDots'},
+    // {questionNum: 9, question: 'Where I work, I feel encouraged to come up with new and better ways of doing things.', type: 'fiveDots'},
   ];
 
   constructor(private router: Router, private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, private data: Data) {
@@ -65,7 +65,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    console.log('----HomeComponent----');
   }
 
   goForm() {
@@ -131,7 +131,7 @@ export class HomeComponent implements OnInit {
     }
     this.userAnswer = num;
     console.log('user selected = ' + this.userAnswer);
-    const new_obj = {'userAnswer': this.userAnswer};
+    const new_obj = {'userAnswer = ': this.userAnswer};
     Object.assign(this.currentQuestion, new_obj);
   }
 

@@ -1,5 +1,7 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <div class="circle">
-  <svg style="z-index: -100; overflow: visible;" version="1.1" viewBox="0 0 1000 1000"
+  <svg style="z-index: -100; overflow: visible;
+    max-height: 100vh;" version="1.1" viewBox="0 0 1000 1000"
        preserveAspectRatio="xMinYMin meet">
     <defs>
       <linearGradient id="MyGradient">
@@ -12,26 +14,25 @@
   </svg>
 
   <div id="Welcome" *ngIf="!isQuestion">
-    <header style="margin: 35px">
-      <div style="margin: 10px auto; width: 110px"><img width="100%" src="../assets/img/feets-logo-gradient.png"></div>
-      <div style="color: #7A7A7A; text-align: center; margin: 1%;">@ HRDF 2018 (Malaysia)</div>
+    <header>
+      <div class="feets-logo"><img width="100%" src="../assets/img/feets-logo-gradient.png"></div>
+      <div class="event-name">@ HRDF 2018 (Malaysia)</div>
     </header>
 
     <div class="HRDF-first-page">
-      <div style="display: table-cell; vertical-align: middle;">
+      <div>
         Test your<br> <b>Feet's Level</b><br> now!
       </div>
     </div>
 
     <footer>
-      <div style="text-align: center">
-        <button (click)="toggleIsQuestion()" class="start-back-btn" style="padding: 2% 15%;">Start!</button>
+      <div>
+        <button (click)="toggleIsQuestion()" class="start-back-btn">Start!</button>
       </div>
     </footer>
   </div>
 
   <div id="Questions" *ngIf="isQuestion">
-
     <div>
       <span class="number-in-progressbar">{{questionIndex + 1}}</span>
       <round-progress style="padding-bottom: 0"
@@ -100,7 +101,7 @@
 
         <!--   -------------------------- 5 dots --------------------------   -->
         <div id="dots-5" class="container container-padding" *ngIf="is5Dots || currentQuestion.type === 'fiveDots'">
-          <div class="row" style="height: 20vw; line-height: 20vw;">
+          <div class="row">
 
             <div class="col-xs-12">
               <div (click)="selectAnswer(1)" *ngIf="!isSelected1" class="icon-Unselected-red large-scale"></div>
@@ -123,7 +124,7 @@
               <div *ngIf="isSelected5" class="icon-selected-green large-scale"></div>
             </div>
           </div>
-          <div class="row" style="font-size: 3vw;">
+          <div class="row label-dots">
             <div class="col-xs-12">
               <span class="col-xs-6" style="text-align: left;">Disagree</span>
               <span class="col-xs-6" style="text-align: right;">Agree</span>
@@ -163,7 +164,7 @@
             <!--</div>-->
           <!--</div>-->
         <!--</div>-->
-        <div style="text-align: -webkit-center; margin: 5vw;">
+        <div>
           <button *ngIf="hasAnswered && !isLastQuestion" class="start-back-btn" (click)="nextQuestion()">Next</button>
           <button *ngIf="!hasAnswered && !isLastQuestion" [disabled]=true class="start-back-btn-disable">Next</button>
           <button *ngIf="hasAnswered && isLastQuestion" class="start-back-btn" (click)="goForm()">Finish</button>

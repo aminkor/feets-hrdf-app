@@ -4,6 +4,10 @@
   font-size: 3vw;
 }
 
+.form-inputs{
+  margin:0vw 7vw 7vw 7vw;
+}
+
 .center-this-container{
   position: relative;
   height: 100%;
@@ -44,6 +48,10 @@ label{
   font-weight: bold;
   font-family: Arial;
   font-size: 3vw;
+}
+
+.checkbox-space{
+  padding-left: 5vh;
 }
 
 .checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio]{
@@ -103,18 +111,55 @@ label{
   padding-left: 0px !important;
 }
 
-@media only screen and (min-width: 600px) {
-  select {
-    height: 50px;
-  }
+//@media only screen and (min-width: 600px) {
+//  select {
+//    height: 50px;
+//  }
+//
+//  input {
+//    height: 50px;
+//  }
+//}
 
-  input {
-    height: 50px;
-  }
+@media only screen and (max-width:1025px) {
+  /* For tablets: */
+
 }
 
+@media only screen and (max-width:500px) {
+  /* For mobile phones: */
 
-//.row{
-//  margin-left: initial !important;
-//  margin-right: initial !important;
-//}
+}
+
+@media only screen and (min-width:1026px) {
+  /* For Desktop */
+  .form-introduction {
+    color: #7A7A7A;
+    margin: 15vh 50vh 1vh;
+    font-size: 3vh;
+  }
+
+  .form-inputs{
+    margin: 0vh 50vh;
+  }
+
+  label {
+    color: #7A7A7A;
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 2vh;
+  }
+
+  .btn-success{
+    color: #fff;
+    font-weight: bolder;
+    background-image: linear-gradient(to right, #FFE25B, #F1CC20);
+    border-color: transparent;
+    width: 100%;
+    padding: 1.5vh;
+    font-size: 1.5vh;
+    border-radius: 0.5em;
+    background-color: transparent !important;
+  }
+
+}
