@@ -84,7 +84,7 @@
                    [(ngModel)]="model.countryCode" name="cc" #cc="ngModel">
           </div>
           <div class="col-8 col-half-offset-on nopadding">
-            <input type="tel" class="form-control" id="phoneNum" required placeholder="98765432" [maxlength]="8" min="model.countryCode"
+            <input type="tel" class="form-control" id="phoneNum" required placeholder="98765432" [maxlength]="20" min="model.countryCode"
                    [(ngModel)]="model.phone" name="phoneNum" #phoneNum="ngModel">
           </div>
         </div>
