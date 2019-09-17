@@ -75,16 +75,16 @@
       <div class="form-group">
         <div class="row">
           <div class="col-auto">
-            <label for="phoneNum">Phone Number (optional)</label>
+            <label for="phoneNum">Phone Number</label>
           </div>
         </div>
         <div class="row">
           <div class="col-3" style="padding-right: 7px;">
-            <input type="tel" class="form-control" id="cc" pattern="[\+]\d{3}" placeholder="+601" [maxlength]="4"
+            <input type="tel" class="form-control" id="cc" required pattern="[\+]\d{3}" placeholder="+62" [maxlength]="4"
                    [(ngModel)]="model.countryCode" name="cc" #cc="ngModel">
           </div>
           <div class="col-8 col-half-offset-on nopadding">
-            <input type="tel" class="form-control" id="phoneNum" placeholder="98765432" [maxlength]="8" min="model.countryCode"
+            <input type="tel" class="form-control" id="phoneNum" required placeholder="98765432" [maxlength]="8" min="model.countryCode"
                    [(ngModel)]="model.phone" name="phoneNum" #phoneNum="ngModel">
           </div>
         </div>
