@@ -131,7 +131,7 @@ export class HomeComponent implements OnInit {
     }
     this.userAnswer = num;
     console.log('user selected = ' + this.userAnswer);
-    const new_obj = {'userAnswer = ': this.userAnswer};
+    const new_obj = {'userAnswer': this.userAnswer};
     Object.assign(this.currentQuestion, new_obj);
   }
 
