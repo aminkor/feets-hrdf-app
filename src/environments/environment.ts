@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://ec2-13-229-135-145.ap-southeast-1.compute.amazonaws.com:3000/api/v1',
-  websocketApiUrl: 'ws://ec2-13-229-135-145.ap-southeast-1.compute.amazonaws.com:3000/cable'
+  apiUrl: 'http://127.0.0.1:3000/api/v1',
+  websocketApiUrl: 'ws://127.0.0.1:3000/api/v1:3000/cable'
 };
 
 /*
